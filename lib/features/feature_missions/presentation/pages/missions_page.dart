@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_x/features/feature_rockets/presentation/pages/missions_detailed_page.dart';
+import 'package:space_x/features/feature_missions/presentation/pages/missions_detailed_page.dart';
 
 class MissionsPage extends StatefulWidget {
   const MissionsPage({Key? key}) : super(key: key);
