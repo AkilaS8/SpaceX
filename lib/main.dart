@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_x/features/feature_rockets/presentation/pages/rockets_page.dart';
+import 'package:space_x/features/feature_vehicles/screens/vehicles_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RocketsPage(),
+      home: VehiclesPage(),
     );
   }
 }
