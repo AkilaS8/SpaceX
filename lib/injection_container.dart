@@ -11,6 +11,11 @@ import 'package:space_x/features/feature_rockets/data/repositories/rockets_repos
 import 'package:space_x/features/feature_rockets/domain/repositories/rockets_repository.dart';
 import 'package:space_x/features/feature_rockets/domain/usecases/rockets_usecase.dart';
 import 'package:space_x/features/feature_rockets/presentation/bloc/rockets_bloc.dart';
+import 'package:space_x/features/feature_ships/data/data_source/remote_data_source/ships_remote_data_data_source.dart';
+import 'package:space_x/features/feature_ships/data/repositories/ships_repository.dart';
+import 'package:space_x/features/feature_ships/domain/repositories/ships_repository.dart';
+import 'package:space_x/features/feature_ships/domain/usecases/ships_usecase.dart';
+import 'package:space_x/features/feature_ships/prersentation/bloc/ships_bloc.dart';
 
 import 'core/network/network_info.dart';
 
@@ -30,6 +35,13 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
+  //ships
+  sl.registerLazySingleton(
+        () => ShipsBloc(
+      useCase: sl(),
+    ),
+  );
+
 
   ///!!! Data Sources
   //rockets
@@ -41,6 +53,12 @@ Future<void> init() async {
   //dragons
   sl.registerLazySingleton<DragonRemoteDataSource>(
         () => DragonsRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+  //ships
+  sl.registerLazySingleton<ShipsRemoteDataSource>(
+        () => ShipsRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -60,6 +78,13 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+  //ships
+  sl.registerLazySingleton<ShipsRepository>(
+        () => ShipsRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   ///!!! Use Cases
   //rockets
@@ -71,6 +96,12 @@ Future<void> init() async {
   //rockets
   sl.registerLazySingleton(
         () => GetDragonsUseCase(
+      sl(),
+    ),
+  );
+  //ships
+  sl.registerLazySingleton(
+        () => GetShipsUseCase(
       sl(),
     ),
   );

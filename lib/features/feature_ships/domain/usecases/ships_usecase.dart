@@ -7,7 +7,7 @@ import 'package:space_x/features/feature_ships/domain/repositories/ships_reposit
 class GetShipsUseCase extends UseCase<List<ShipDataModelEntity>, NoParams> {
   final ShipsRepository repository;
 
-  GetShipsUseCase({required this.repository});
+  GetShipsUseCase(this.repository);
 
   @override
   Future<Either<Failure, List<ShipDataModelEntity>>> call(NoParams params) {
