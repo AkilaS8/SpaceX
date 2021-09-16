@@ -1,12 +1,18 @@
-class DragonDataModelDiameter {
+import 'package:space_x/features/feature_dragon/domain/entities/response/dragons_data_entity.dart';
+
+class DragonDataModelDiameter extends DragonDataModelDiameterEntity {
   double? meters;
 
   DragonDataModelDiameter({
     this.meters,
-  });
+  }) : super(
+          meters: meters,
+        );
+
   DragonDataModelDiameter.fromJson(Map<String, dynamic> json) {
     meters = json["meters"]?.toDouble();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["meters"] = meters;
@@ -14,16 +20,19 @@ class DragonDataModelDiameter {
   }
 }
 
-class DragonDataModelHeightWTrunk {
-
+class DragonDataModelHeightWTrunk extends DragonDataModelHeightWTrunkEntity {
   double? meters;
 
   DragonDataModelHeightWTrunk({
     this.meters,
-  });
+  }) : super(
+          meters: meters,
+        );
+
   DragonDataModelHeightWTrunk.fromJson(Map<String, dynamic> json) {
     meters = json["meters"]?.toDouble();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["meters"] = meters;
@@ -31,19 +40,23 @@ class DragonDataModelHeightWTrunk {
   }
 }
 
-class DragonDataModelTrunkCargo {
-
+class DragonDataModelTrunkCargo extends DragonDataModelTrunkCargoEntity {
   int? solarArray;
   bool? unpressurizedCargo;
 
   DragonDataModelTrunkCargo({
     this.solarArray,
     this.unpressurizedCargo,
-  });
+  }) : super(
+          solarArray: solarArray,
+          unpressurizedCargo: unpressurizedCargo,
+        );
+
   DragonDataModelTrunkCargo.fromJson(Map<String, dynamic> json) {
     solarArray = json["solar_array"]?.toInt();
     unpressurizedCargo = json["unpressurized_cargo"];
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["solar_array"] = solarArray;
@@ -52,16 +65,20 @@ class DragonDataModelTrunkCargo {
   }
 }
 
-class DragonDataModelTrunkTrunkVolume {
-
+class DragonDataModelTrunkTrunkVolume
+    extends DragonDataModelTrunkTrunkVolumeEntity {
   int? cubicMeters;
 
   DragonDataModelTrunkTrunkVolume({
     this.cubicMeters,
-  });
+  }) : super(
+          cubicMeters: cubicMeters,
+        );
+
   DragonDataModelTrunkTrunkVolume.fromJson(Map<String, dynamic> json) {
     cubicMeters = json["cubic_meters"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["cubic_meters"] = cubicMeters;
@@ -69,41 +86,54 @@ class DragonDataModelTrunkTrunkVolume {
   }
 }
 
-class DragonDataModelTrunk {
-
-  DragonDataModelTrunkTrunkVolume? trunkVolume;
-  DragonDataModelTrunkCargo? cargo;
+class DragonDataModelTrunk extends DragonDataModelTrunkEntity {
+  DragonDataModelTrunkTrunkVolume? trunkVolumeDragon;
+  DragonDataModelTrunkCargo? cargoDragon;
 
   DragonDataModelTrunk({
-    this.trunkVolume,
-    this.cargo,
-  });
+    this.trunkVolumeDragon,
+    this.cargoDragon,
+  }) : super(
+          trunkVolume: trunkVolumeDragon,
+          cargo: cargoDragon,
+        );
+
   DragonDataModelTrunk.fromJson(Map<String, dynamic> json) {
-    trunkVolume = (json["trunk_volume"] != null) ? DragonDataModelTrunkTrunkVolume.fromJson(json["trunk_volume"]) : null;
-    cargo = (json["cargo"] != null) ? DragonDataModelTrunkCargo.fromJson(json["cargo"]) : null;
+    trunkVolumeDragon = (json["trunk_volume"] != null)
+        ? DragonDataModelTrunkTrunkVolume.fromJson(json["trunk_volume"])
+        : null;
+    cargoDragon = (json["cargo"] != null)
+        ? DragonDataModelTrunkCargo.fromJson(json["cargo"])
+        : null;
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    if (trunkVolume != null) {
-      data["trunk_volume"] = trunkVolume!.toJson();
+    if (trunkVolumeDragon != null) {
+      data["trunk_volume"] = trunkVolumeDragon!.toJson();
     }
-    if (cargo != null) {
-      data["cargo"] = cargo!.toJson();
+    if (cargoDragon != null) {
+      data["cargo"] = cargoDragon!.toJson();
     }
     return data;
   }
 }
 
-class DragonDataModelPressurizedCapsulePayloadVolume {
-
+class DragonDataModelPressurizedCapsulePayloadVolume
+    extends DragonDataModelPressurizedCapsulePayloadVolumeEntity {
   int? cubicMeters;
 
   DragonDataModelPressurizedCapsulePayloadVolume({
     this.cubicMeters,
-  });
-  DragonDataModelPressurizedCapsulePayloadVolume.fromJson(Map<String, dynamic> json) {
+  }) : super(
+          cubicMeters: cubicMeters,
+        );
+
+  DragonDataModelPressurizedCapsulePayloadVolume.fromJson(
+      Map<String, dynamic> json) {
     cubicMeters = json["cubic_meters"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["cubic_meters"] = cubicMeters;
@@ -111,35 +141,46 @@ class DragonDataModelPressurizedCapsulePayloadVolume {
   }
 }
 
-class DragonDataModelPressurizedCapsule {
-
-  DragonDataModelPressurizedCapsulePayloadVolume? payloadVolume;
+class DragonDataModelPressurizedCapsule
+    extends DragonDataModelPressurizedCapsuleEntity {
+  DragonDataModelPressurizedCapsulePayloadVolume? payloadVolumeDragon;
 
   DragonDataModelPressurizedCapsule({
-    this.payloadVolume,
-  });
+    this.payloadVolumeDragon, //payloadVolume
+  }) : super(
+          payloadVolume: payloadVolumeDragon,
+        );
+
   DragonDataModelPressurizedCapsule.fromJson(Map<String, dynamic> json) {
-    payloadVolume = (json["payload_volume"] != null) ? DragonDataModelPressurizedCapsulePayloadVolume.fromJson(json["payload_volume"]) : null;
+    payloadVolumeDragon = (json["payload_volume"] != null)
+        ? DragonDataModelPressurizedCapsulePayloadVolume.fromJson(
+            json["payload_volume"])
+        : null;
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    if (payloadVolume != null) {
-      data["payload_volume"] = payloadVolume!.toJson();
+    if (payloadVolumeDragon != null) {
+      data["payload_volume"] = payloadVolumeDragon!.toJson();
     }
     return data;
   }
 }
 
-class DragonDataModelReturnPayloadVol {
-
+class DragonDataModelReturnPayloadVol
+    extends DragonDataModelReturnPayloadVolEntity {
   int? cubicMeters;
 
   DragonDataModelReturnPayloadVol({
     this.cubicMeters,
-  });
+  }) : super(
+          cubicMeters: cubicMeters,
+        );
+
   DragonDataModelReturnPayloadVol.fromJson(Map<String, dynamic> json) {
     cubicMeters = json["cubic_meters"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["cubic_meters"] = cubicMeters;
@@ -147,16 +188,20 @@ class DragonDataModelReturnPayloadVol {
   }
 }
 
-class DragonDataModelReturnPayloadMass {
-
+class DragonDataModelReturnPayloadMass
+    extends DragonDataModelReturnPayloadMassEntity {
   int? kg;
 
   DragonDataModelReturnPayloadMass({
     this.kg,
-  });
+  }) : super(
+          kg: kg,
+        );
+
   DragonDataModelReturnPayloadMass.fromJson(Map<String, dynamic> json) {
     kg = json["kg"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["kg"] = kg;
@@ -164,16 +209,20 @@ class DragonDataModelReturnPayloadMass {
   }
 }
 
-class DragonDataModelLaunchPayloadVol {
-
+class DragonDataModelLaunchPayloadVol
+    extends DragonDataModelLaunchPayloadVolEntity {
   int? cubicMeters;
 
   DragonDataModelLaunchPayloadVol({
     this.cubicMeters,
-  });
+  }) : super(
+          cubicMeters: cubicMeters,
+        );
+
   DragonDataModelLaunchPayloadVol.fromJson(Map<String, dynamic> json) {
     cubicMeters = json["cubic_meters"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["cubic_meters"] = cubicMeters;
@@ -181,16 +230,20 @@ class DragonDataModelLaunchPayloadVol {
   }
 }
 
-class DragonDataModelLaunchPayloadMass {
-
+class DragonDataModelLaunchPayloadMass
+    extends DragonDataModelLaunchPayloadMassEntity {
   int? kg;
 
   DragonDataModelLaunchPayloadMass({
     this.kg,
-  });
+  }) : super(
+          kg: kg,
+        );
+
   DragonDataModelLaunchPayloadMass.fromJson(Map<String, dynamic> json) {
     kg = json["kg"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["kg"] = kg;
@@ -198,8 +251,7 @@ class DragonDataModelLaunchPayloadMass {
   }
 }
 
-class DragonDataModelHeatShield {
-
+class DragonDataModelHeatShield extends DragonDataModelHeatShieldEntity {
   String? material;
   double? sizeMeters;
   int? tempDegrees;
@@ -208,12 +260,18 @@ class DragonDataModelHeatShield {
     this.material,
     this.sizeMeters,
     this.tempDegrees,
-  });
+  }) : super(
+          material: material,
+          sizeMeters: sizeMeters,
+          tempDegrees: tempDegrees,
+        );
+
   DragonDataModelHeatShield.fromJson(Map<String, dynamic> json) {
     material = json["material"]?.toString();
     sizeMeters = json["size_meters"]?.toDouble();
     tempDegrees = json["temp_degrees"]?.toInt();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["material"] = material;
@@ -223,8 +281,7 @@ class DragonDataModelHeatShield {
   }
 }
 
-class DragonDataModel {
-
+class DragonDataModel extends DragonDataEntity {
   String? id;
   String? name;
   String? type;
@@ -232,15 +289,15 @@ class DragonDataModel {
   int? crewCapacity;
   int? dryMassKg;
   String? firstFlight;
-  DragonDataModelHeatShield? heatShield;
-  DragonDataModelLaunchPayloadMass? launchPayloadMass;
-  DragonDataModelLaunchPayloadVol? launchPayloadVol;
-  DragonDataModelReturnPayloadMass? returnPayloadMass;
-  DragonDataModelReturnPayloadVol? returnPayloadVol;
-  DragonDataModelPressurizedCapsule? pressurizedCapsule;
-  DragonDataModelTrunk? trunk;
-  DragonDataModelHeightWTrunk? heightWTrunk;
-  DragonDataModelDiameter? diameter;
+  DragonDataModelHeatShield? heatShieldDragon;
+  DragonDataModelLaunchPayloadMass? launchPayloadMassDragon;
+  DragonDataModelLaunchPayloadVol? launchPayloadVolDragon;
+  DragonDataModelReturnPayloadMass? returnPayloadMassDragon;
+  DragonDataModelReturnPayloadVol? returnPayloadVolDragon;
+  DragonDataModelPressurizedCapsule? pressurizedCapsuleDragon;
+  DragonDataModelTrunk? trunkDragon;
+  DragonDataModelHeightWTrunk? heightWTrunkDragon;
+  DragonDataModelDiameter? diameterDragon;
   List<String?>? flickrImages;
   String? wikipedia;
   String? description;
@@ -253,19 +310,40 @@ class DragonDataModel {
     this.crewCapacity,
     this.dryMassKg,
     this.firstFlight,
-    this.heatShield,
-    this.launchPayloadMass,
-    this.launchPayloadVol,
-    this.returnPayloadMass,
-    this.returnPayloadVol,
-    this.pressurizedCapsule,
-    this.trunk,
-    this.heightWTrunk,
-    this.diameter,
+    this.heatShieldDragon,
+    this.launchPayloadMassDragon,
+    this.launchPayloadVolDragon,
+    this.returnPayloadMassDragon,
+    this.returnPayloadVolDragon,
+    this.pressurizedCapsuleDragon,
+    this.trunkDragon,
+    this.heightWTrunkDragon,
+    this.diameterDragon,
     this.flickrImages,
     this.wikipedia,
     this.description,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          type: type,
+          active: active,
+          crewCapacity: crewCapacity,
+          dryMassKg: dryMassKg,
+          firstFlight: firstFlight,
+          heatShield: heatShieldDragon,
+          launchPayloadMass: launchPayloadMassDragon,
+          launchPayloadVol: launchPayloadVolDragon,
+          returnPayloadMass: returnPayloadMassDragon,
+          returnPayloadVol: returnPayloadVolDragon,
+          pressurizedCapsule: pressurizedCapsuleDragon,
+          trunk: trunkDragon,
+          heightWTrunk: heightWTrunkDragon,
+          diameter: diameterDragon,
+          flickrImages: flickrImages,
+          wikipedia: wikipedia,
+          description: description,
+        );
+
   DragonDataModel.fromJson(Map<String, dynamic> json) {
     id = json["id"]?.toString();
     name = json["name"]?.toString();
@@ -274,15 +352,34 @@ class DragonDataModel {
     crewCapacity = json["crew_capacity"]?.toInt();
     dryMassKg = json["dry_mass_kg"]?.toInt();
     firstFlight = json["first_flight"]?.toString();
-    heatShield = (json["heat_shield"] != null) ? DragonDataModelHeatShield.fromJson(json["heat_shield"]) : null;
-    launchPayloadMass = (json["launch_payload_mass"] != null) ? DragonDataModelLaunchPayloadMass.fromJson(json["launch_payload_mass"]) : null;
-    launchPayloadVol = (json["launch_payload_vol"] != null) ? DragonDataModelLaunchPayloadVol.fromJson(json["launch_payload_vol"]) : null;
-    returnPayloadMass = (json["return_payload_mass"] != null) ? DragonDataModelReturnPayloadMass.fromJson(json["return_payload_mass"]) : null;
-    returnPayloadVol = (json["return_payload_vol"] != null) ? DragonDataModelReturnPayloadVol.fromJson(json["return_payload_vol"]) : null;
-    pressurizedCapsule = (json["pressurized_capsule"] != null) ? DragonDataModelPressurizedCapsule.fromJson(json["pressurized_capsule"]) : null;
-    trunk = (json["trunk"] != null) ? DragonDataModelTrunk.fromJson(json["trunk"]) : null;
-    heightWTrunk = (json["height_w_trunk"] != null) ? DragonDataModelHeightWTrunk.fromJson(json["height_w_trunk"]) : null;
-    diameter = (json["diameter"] != null) ? DragonDataModelDiameter.fromJson(json["diameter"]) : null;
+    heatShieldDragon = (json["heat_shield"] != null)
+        ? DragonDataModelHeatShield.fromJson(json["heat_shield"])
+        : null;
+    launchPayloadMassDragon = (json["launch_payload_mass"] != null)
+        ? DragonDataModelLaunchPayloadMass.fromJson(json["launch_payload_mass"])
+        : null;
+    launchPayloadVolDragon = (json["launch_payload_vol"] != null)
+        ? DragonDataModelLaunchPayloadVol.fromJson(json["launch_payload_vol"])
+        : null;
+    returnPayloadMassDragon = (json["return_payload_mass"] != null)
+        ? DragonDataModelReturnPayloadMass.fromJson(json["return_payload_mass"])
+        : null;
+    returnPayloadVolDragon = (json["return_payload_vol"] != null)
+        ? DragonDataModelReturnPayloadVol.fromJson(json["return_payload_vol"])
+        : null;
+    pressurizedCapsuleDragon = (json["pressurized_capsule"] != null)
+        ? DragonDataModelPressurizedCapsule.fromJson(
+            json["pressurized_capsule"])
+        : null;
+    trunkDragon = (json["trunk"] != null)
+        ? DragonDataModelTrunk.fromJson(json["trunk"])
+        : null;
+    heightWTrunkDragon = (json["height_w_trunk"] != null)
+        ? DragonDataModelHeightWTrunk.fromJson(json["height_w_trunk"])
+        : null;
+    diameterDragon = (json["diameter"] != null)
+        ? DragonDataModelDiameter.fromJson(json["diameter"])
+        : null;
     if (json["flickr_images"] != null) {
       final v = json["flickr_images"];
       final arr0 = <String>[];
@@ -294,6 +391,7 @@ class DragonDataModel {
     wikipedia = json["wikipedia"]?.toString();
     description = json["description"]?.toString();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data["id"] = id;
@@ -303,32 +401,32 @@ class DragonDataModel {
     data["crew_capacity"] = crewCapacity;
     data["dry_mass_kg"] = dryMassKg;
     data["first_flight"] = firstFlight;
-    if (heatShield != null) {
-      data["heat_shield"] = heatShield!.toJson();
+    if (heatShieldDragon != null) {
+      data["heat_shield"] = heatShieldDragon!.toJson();
     }
-    if (launchPayloadMass != null) {
-      data["launch_payload_mass"] = launchPayloadMass!.toJson();
+    if (launchPayloadMassDragon != null) {
+      data["launch_payload_mass"] = launchPayloadMassDragon!.toJson();
     }
-    if (launchPayloadVol != null) {
-      data["launch_payload_vol"] = launchPayloadVol!.toJson();
+    if (launchPayloadVolDragon != null) {
+      data["launch_payload_vol"] = launchPayloadVolDragon!.toJson();
     }
-    if (returnPayloadMass != null) {
-      data["return_payload_mass"] = returnPayloadMass!.toJson();
+    if (returnPayloadMassDragon != null) {
+      data["return_payload_mass"] = returnPayloadMassDragon!.toJson();
     }
-    if (returnPayloadVol != null) {
-      data["return_payload_vol"] = returnPayloadVol!.toJson();
+    if (returnPayloadVolDragon != null) {
+      data["return_payload_vol"] = returnPayloadVolDragon!.toJson();
     }
-    if (pressurizedCapsule != null) {
-      data["pressurized_capsule"] = pressurizedCapsule!.toJson();
+    if (pressurizedCapsuleDragon != null) {
+      data["pressurized_capsule"] = pressurizedCapsuleDragon!.toJson();
     }
-    if (trunk != null) {
-      data["trunk"] = trunk!.toJson();
+    if (trunkDragon != null) {
+      data["trunk"] = trunkDragon!.toJson();
     }
-    if (heightWTrunk != null) {
-      data["height_w_trunk"] = heightWTrunk!.toJson();
+    if (heightWTrunkDragon != null) {
+      data["height_w_trunk"] = heightWTrunkDragon!.toJson();
     }
-    if (diameter != null) {
-      data["diameter"] = diameter!.toJson();
+    if (diameterDragon != null) {
+      data["diameter"] = diameterDragon!.toJson();
     }
     if (flickrImages != null) {
       final v = flickrImages;
