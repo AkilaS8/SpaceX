@@ -6,6 +6,7 @@ abstract class ShipsState extends Equatable {
 
 //init
 class ShipsInitialState extends ShipsState {
+
   @override
   List<Object?> get props => [];
 }
