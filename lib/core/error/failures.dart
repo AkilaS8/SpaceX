@@ -8,5 +8,3 @@ abstract class Failure extends Equatable{
 }
 
 class ServerFailure extends Failure {}
-
-class LocationFailure extends Failure {}
