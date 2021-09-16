@@ -7,7 +7,7 @@ import 'package:space_x/features/feature_missions/domain/repositories/missions_r
 class GetMissionsUseCase extends UseCase<List<MissionsDataModelEntity>, NoParams> {
   final MissionsRepository repository;
 
-  GetMissionsUseCase({required this.repository});
+  GetMissionsUseCase(this.repository);
 
   @override
   Future<Either<Failure, List<MissionsDataModelEntity>>> call(NoParams params) {
