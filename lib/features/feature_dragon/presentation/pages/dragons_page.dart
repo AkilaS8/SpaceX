@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/core/loadings/rockets_loading_view.dart';
-import 'package:space_x/features/feature_rockets/presentation/bloc/rockets_bloc.dart';
-import 'package:space_x/features/feature_rockets/presentation/widgets/rocket_list_tile_widget.dart';
-import 'package:space_x/injection_container.dart';
+import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
+import 'package:space_x/features/feature_dragon/presentation/widgets/dragon_list_tile_widget.dart';
 
-class RocketsPage extends StatefulWidget {
-  const RocketsPage({Key? key}) : super(key: key);
+import '../../../../injection_container.dart';
+
+class DragonsPage extends StatefulWidget {
+  const DragonsPage({Key? key}) : super(key: key);
 
   @override
-  _RocketsPageState createState() => _RocketsPageState();
+  _DragonsPageState createState() => _DragonsPageState();
 }
 
-class _RocketsPageState extends State<RocketsPage> {
-  final bloc = sl<RocketsBloc>();
+class _DragonsPageState extends State<DragonsPage> {
+  final bloc = sl<DragonsBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,24 +31,24 @@ class _RocketsPageState extends State<RocketsPage> {
     );
   }
 
-  BlocProvider<RocketsBloc> buildBody() {
+  BlocProvider<DragonsBloc> buildBody() {
     return BlocProvider(
       create: (_) => bloc,
-      child: BlocBuilder<RocketsBloc, RocketsState>(
+      child: BlocBuilder<DragonsBloc, DragonsState>(
         builder: (context, state) {
-          if (state is RocketsInitialState) {
+          if (state is DragonsInitialState) {
             _dispatchInit(context);
             return RocketsLoadingView();
-          } else if (state is RocketsLoadingState) {
+          } else if (state is DragonsLoadingState) {
             return RocketsLoadingView();
-          } else if (state is RocketsLoadedState) {
+          } else if (state is DragonsLoadedState) {
             return ListView.builder(
-              itemCount: state.rocketsList.length,
+              itemCount: state.dragonsList.length,
               itemBuilder: (context, index) {
-                return RocketListTile(rocket: state.rocketsList[index]);
+                return DragonListTile(dragon: state.dragonsList[index]);
               },
             );
-          } else if (state is RocketsErrorState) {
+          } else if (state is DragonsErrorState) {
             return ErrorWidget(state.errorMessage.toString());
           }
           return ErrorWidget("Unexpected error occur");
@@ -57,6 +58,6 @@ class _RocketsPageState extends State<RocketsPage> {
   }
 
   void _dispatchInit(context) {
-    BlocProvider.of<RocketsBloc>(context)..add(GetRocketDataListEvent());
+    BlocProvider.of<DragonsBloc>(context)..add(GetDragonsDataListEvent());
   }
 }
