@@ -5,14 +5,14 @@ import 'package:space_x/core/error/exception.dart';
 import 'package:space_x/features/feature_ships/data/models/ship_data_model.dart';
 import 'package:http/http.dart' as http;
 
-abstract class DragonRemoteDataSource {
+abstract class ShipsRemoteDataSource {
   Future<List<ShipDataModel>> getShipsDetails();
 }
 
-class DragonRemoteDataSourceImpl extends DragonRemoteDataSource{
+class ShipsRemoteDataSourceImpl extends ShipsRemoteDataSource{
   final http.Client client;
 
-  DragonRemoteDataSourceImpl({required this.client});
+  ShipsRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<ShipDataModel>> getShipsDetails() async{
