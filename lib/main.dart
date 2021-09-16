@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:space_x/features/feature_company/presentation/pages/company_page.dart';
+import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
+import 'package:space_x/features/feature_rockets/presentation/pages/rockets_page.dart';
 import 'package:space_x/features/feature_vehicles/screens/vehicles_page.dart';
 import 'injection_container.dart' as di;
 
@@ -15,9 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xff102039),
       ),
-      home: VehiclesPage(),
+      home: MissionsPage(),
     );
   }
 }
