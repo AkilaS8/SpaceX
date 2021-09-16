@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:space_x/features/feature_company/presentation/pages/company_page.dart';
-import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
-import 'package:space_x/features/feature_rockets/presentation/pages/rockets_page.dart';
-import 'package:space_x/features/feature_vehicles/screens/vehicles_page.dart';
+import 'features/feature_launches/screens/launches_page.dart';
 import 'injection_container.dart' as di;
-import 'package:space_x/features/feature_lunches/presentation/pages/launches_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
