@@ -30,7 +30,7 @@ class _MainMenuState extends State<MainMenu> {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Home);
     } else if (currentPage == DrawerSection.Launches) {
-      container = VehiclesPage();
+      container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Launches);
     } else if (currentPage == DrawerSection.Vehicles) {
       container = VehiclesPage();
@@ -39,9 +39,6 @@ class _MainMenuState extends State<MainMenu> {
       container = MissionsPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Missions);
     } else if (currentPage == DrawerSection.History) {
-      container = VehiclesPage();
-    }
-    else if(currentPage == DrawerSection.History){
       container = HistoryPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.History);
     } else if (currentPage == DrawerSection.Company) {
