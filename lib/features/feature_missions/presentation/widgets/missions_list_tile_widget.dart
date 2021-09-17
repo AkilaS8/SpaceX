@@ -29,7 +29,7 @@ class MissionsListTile extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MissionsDetailedPage()),
+                        builder: (context) => MissionsDetailedPage()), //
                   )
                 },
               ),

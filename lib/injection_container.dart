@@ -1,6 +1,11 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:space_x/features/feature_company/data/data_source/remote_data_data_source/company_remote_data_data_source.dart';
+import 'package:space_x/features/feature_company/data/repositories/company_repository.dart';
+import 'package:space_x/features/feature_company/domain/repositories/company_repository.dart';
+import 'package:space_x/features/feature_company/domain/usecases/company_usecase.dart';
+import 'package:space_x/features/feature_company/presentation/bloc/company_bloc.dart';
 import 'package:space_x/features/feature_dragon/data/data_sources/remote_data_source/dragons_remote_data_source.dart';
 import 'package:space_x/features/feature_dragon/data/repositories/dragons_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/repositories/dragon_repository.dart';
@@ -63,6 +68,12 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
+  //company
+  sl.registerLazySingleton(
+        () => CompanyBloc(
+      useCase: sl(),
+    ),
+  );
 
 
   ///!!! Data Sources
@@ -93,6 +104,12 @@ Future<void> init() async {
   //history
   sl.registerLazySingleton<HistoryRemoteDataSource>(
         () => HistoryRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+  //company
+  sl.registerLazySingleton<CompanyRemoteDataSource>(
+        () => CompanyRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -133,6 +150,13 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+  //company
+  sl.registerLazySingleton<CompanyRepository>(
+        () => CompanyRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   ///!!! Use Cases
   //rockets
@@ -162,6 +186,12 @@ Future<void> init() async {
   //history
   sl.registerLazySingleton(
         () => GetHistoryUseCase(
+      sl(),
+    ),
+  );
+  //company
+  sl.registerLazySingleton(
+        () => GetCompanyUseCase(
       sl(),
     ),
   );

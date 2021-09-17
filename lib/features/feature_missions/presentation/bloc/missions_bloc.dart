@@ -4,7 +4,6 @@ import 'package:space_x/core/error/failures.dart';
 import 'package:space_x/core/usecase/usecase.dart';
 import 'package:space_x/features/feature_missions/domain/entities/response/missions_data_entity.dart';
 import 'package:space_x/features/feature_missions/domain/usecases/missions_usecase.dart';
-import 'package:space_x/features/feature_ships/prersentation/bloc/ships_bloc.dart';
 
 part 'missions_events.dart';
 
@@ -19,7 +18,7 @@ class MissionsBloc extends Bloc<MissionsEvent, MissionsState> {
 
   @override
   Stream<MissionsState> mapEventToState(MissionsEvent event) async* {
-    if (event is GetShipsDataListEvent) {
+    if (event is GetMissionsDataListEvent) {
       yield MissionsLoadingState();
       final failureOrMissionsData = await useCase(NoParams());
       yield failureOrMissionsData.fold(
