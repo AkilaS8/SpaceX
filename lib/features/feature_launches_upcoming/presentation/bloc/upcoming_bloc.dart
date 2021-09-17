@@ -23,13 +23,12 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState>{
       yield failureOrRocketData.fold(
             (failure) =>
             UpcomingErrorState(errorMessage: _mapFailureToMessage(failure)),
-            (upcomingData) => UpcomingLoadedState(upcomingList: upcomingData),
-      );
-    }else{
-      throw UpcomingErrorState(errorMessage: 'Unexpected Error');
+            (upcomingData) => UpcomingLoadedState(upcomingList: upcomingData));
+    }
+      yield UpcomingErrorState(errorMessage: 'Unexpected Error');
     }
 
-  }
+
 
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {

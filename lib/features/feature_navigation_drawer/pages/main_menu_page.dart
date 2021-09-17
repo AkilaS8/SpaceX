@@ -3,6 +3,7 @@ import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/core/constants/constants.dart';
 import 'package:space_x/core/custom_icons/custom_icons_icons.dart';
 import 'package:space_x/features/feature_home/home_page.dart';
+import 'package:space_x/features/feature_launches/screens/launches_page.dart';
 import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_body_widget.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_header_widget.dart';
@@ -27,7 +28,7 @@ class _MainMenuState extends State<MainMenu> {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Home);
     }else if(currentPage == DrawerSection.Launches){
-      container = VehiclesPage();
+      container = LaunchesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Launches);
     }
     else if(currentPage == DrawerSection.Vehicles){
