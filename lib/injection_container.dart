@@ -1,16 +1,16 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
-import 'package:space_x/features/feature_company/data/data_source/remote_data_data_source/company_remote_data_data_source.dart';
-import 'package:space_x/features/feature_company/data/repositories/company_repository.dart';
-import 'package:space_x/features/feature_company/domain/repositories/company_repository.dart';
-import 'package:space_x/features/feature_company/domain/usecases/company_usecase.dart';
-import 'package:space_x/features/feature_company/presentation/bloc/company_bloc.dart';
 import 'package:space_x/features/feature_dragon/data/data_sources/remote_data_source/dragons_remote_data_source.dart';
 import 'package:space_x/features/feature_dragon/data/repositories/dragons_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/repositories/dragon_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/usecases/dragons_usecase.dart';
 import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
+import 'package:space_x/features/feature_history/data/data_sources/history_remote_data_source.dart';
+import 'package:space_x/features/feature_history/data/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/use_cases/history_usecase.dart';
+import 'package:space_x/features/feature_history/presentation/bloc/history_bloc.dart';
 import 'package:space_x/features/feature_missions/data/data_source/remote_data_source/missions_remote_data_data_source.dart';
 import 'package:space_x/features/feature_missions/data/repositories/missions_repository.dart';
 import 'package:space_x/features/feature_missions/domain/repositories/missions_repository.dart';
@@ -57,9 +57,9 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
-  //company
+  //history
   sl.registerLazySingleton(
-        () => CompanyBloc(
+        () => HistoryBloc(
       useCase: sl(),
     ),
   );
@@ -90,9 +90,9 @@ Future<void> init() async {
       client: sl(),
     ),
   );
-  //company
-  sl.registerLazySingleton<CompanyRemoteDataSource>(
-        () => CompanyRemoteDataSourceImpl(
+  //history
+  sl.registerLazySingleton<HistoryRemoteDataSource>(
+        () => HistoryRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -126,9 +126,9 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
-  //company
-  sl.registerLazySingleton<CompanyRepository>(
-        () => CompanyRepositoryImpl(
+  //history
+  sl.registerLazySingleton<HistoryRepository>(
+        () => HistoryRepositoryImpl(
       remoteDataSource: sl(),
       networkInfo: sl(),
     ),
@@ -159,9 +159,9 @@ Future<void> init() async {
       sl(),
     ),
   );
-  //company
+  //history
   sl.registerLazySingleton(
-        () => GetCompanyUseCase(
+        () => GetHistoryUseCase(
       sl(),
     ),
   );
