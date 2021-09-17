@@ -19,7 +19,7 @@ class RocketListTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150.0,
+              height: 170.0,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -28,7 +28,7 @@ class RocketListTile extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: NetworkImage(rocket.flickrImages![0].toString()),
+                  image: rocket.flickrImages == null ? AssetImage('assets/images/no_image.png'): NetworkImage(rocket.flickrImages![0].toString()) as ImageProvider,
                 ),
               ),
             ),

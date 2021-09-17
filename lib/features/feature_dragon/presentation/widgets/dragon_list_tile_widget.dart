@@ -19,7 +19,7 @@ class DragonListTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150.0,
+              height: 200.0,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -28,7 +28,7 @@ class DragonListTile extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: NetworkImage(dragon.flickrImages![0].toString()),
+                  image: dragon.flickrImages == null ? AssetImage('assets/images/no_image.png'):NetworkImage(dragon.flickrImages![0].toString()) as ImageProvider,
                 ),
               ),
             ),
