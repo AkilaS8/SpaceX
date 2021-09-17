@@ -26,9 +26,8 @@ class ShipsBloc extends Bloc<ShipsEvent, ShipsState> {
             ShipsErrorState(errorMessage: _mapFailureToMessage(failure)),
         (shipData) => ShipsLoadedState(shipsList: shipData),
       );
-    }else{
-      throw ShipsErrorState(errorMessage: 'Unexpected Error');
     }
+    ShipsErrorState(errorMessage: 'Unexpected Error');
   }
 
   String _mapFailureToMessage(Failure failure) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/feature_launches/screens/launches_page.dart';
+import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
 import 'injection_container.dart' as di;
 
 void main() async{
@@ -13,11 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Color(0xff102039),
-      ),
-      home: LaunchesPage(),
+      title: 'SpaceX',
+      debugShowCheckedModeBanner: false,
+      home: MainMenu(),
     );
   }
 }
