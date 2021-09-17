@@ -6,6 +6,11 @@ import 'package:space_x/features/feature_dragon/data/repositories/dragons_reposi
 import 'package:space_x/features/feature_dragon/domain/repositories/dragon_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/usecases/dragons_usecase.dart';
 import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
+import 'package:space_x/features/feature_history/data/data_sources/history_remote_data_source.dart';
+import 'package:space_x/features/feature_history/data/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/use_cases/history_usecase.dart';
+import 'package:space_x/features/feature_history/presentation/bloc/history_bloc.dart';
 import 'package:space_x/features/feature_missions/data/data_source/remote_data_source/missions_remote_data_data_source.dart';
 import 'package:space_x/features/feature_missions/data/repositories/missions_repository.dart';
 import 'package:space_x/features/feature_missions/domain/repositories/missions_repository.dart';
@@ -52,6 +57,12 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
+  //history
+  sl.registerLazySingleton(
+        () => HistoryBloc(
+      useCase: sl(),
+    ),
+  );
 
 
   ///!!! Data Sources
@@ -76,6 +87,12 @@ Future<void> init() async {
   //missions
   sl.registerLazySingleton<MissionsRemoteDataSource>(
         () => MissionsRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+  //history
+  sl.registerLazySingleton<HistoryRemoteDataSource>(
+        () => HistoryRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -109,6 +126,13 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+  //history
+  sl.registerLazySingleton<HistoryRepository>(
+        () => HistoryRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   ///!!! Use Cases
   //rockets
@@ -132,6 +156,12 @@ Future<void> init() async {
   //missions
   sl.registerLazySingleton(
         () => GetMissionsUseCase(
+      sl(),
+    ),
+  );
+  //history
+  sl.registerLazySingleton(
+        () => GetHistoryUseCase(
       sl(),
     ),
   );
