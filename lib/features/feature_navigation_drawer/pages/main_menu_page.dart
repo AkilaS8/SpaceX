@@ -4,6 +4,7 @@ import 'package:space_x/core/constants/constants.dart';
 import 'package:space_x/core/custom_icons/custom_icons_icons.dart';
 import 'package:space_x/features/feature_about/pages/about_page.dart';
 import 'package:space_x/features/feature_company/presentation/pages/company_page.dart';
+import 'package:space_x/features/feature_history/presentation/pages/history_page.dart';
 import 'package:space_x/features/feature_home/home_page.dart';
 import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_body_widget.dart';
