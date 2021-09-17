@@ -9,10 +9,10 @@ abstract class MissionsRemoteDataSource {
   Future<List<MissionsDataModel>> getMissionsDetails();
 }
 
-class MissionRemoteDataSourceImpl extends MissionsRemoteDataSource {
+class MissionsRemoteDataSourceImpl extends MissionsRemoteDataSource {
   final http.Client client;
 
-  MissionRemoteDataSourceImpl({required this.client});
+  MissionsRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<MissionsDataModel>> getMissionsDetails() async {
