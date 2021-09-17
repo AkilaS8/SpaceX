@@ -51,7 +51,7 @@ class _MissionsPageState extends State<MissionsPage> {
         } else if (state is MissionsErrorState) {
           return ErrorWidget(state.errorMessage.toString());
         }
-        return ErrorWidget("Unexpected error occured");
+        return ErrorWidget("Unexpected error occurred");
       }),
     );
   }
