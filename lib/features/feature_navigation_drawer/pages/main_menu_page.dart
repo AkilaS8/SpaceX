@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/core/constants/constants.dart';
 import 'package:space_x/core/custom_icons/custom_icons_icons.dart';
+import 'package:space_x/features/feature_about/pages/about_page.dart';
 import 'package:space_x/features/feature_home/home_page.dart';
 import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_body_widget.dart';
@@ -23,34 +24,28 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     var container;
 
-    if(currentPage == DrawerSection.Home){
+    if (currentPage == DrawerSection.Home) {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Home);
-    }else if(currentPage == DrawerSection.Launches){
+    } else if (currentPage == DrawerSection.Launches) {
       container = VehiclesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Launches);
-    }
-    else if(currentPage == DrawerSection.Vehicles){
+    } else if (currentPage == DrawerSection.Vehicles) {
       container = VehiclesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Vehicles);
-    }
-    else if(currentPage == DrawerSection.Missions){
+    } else if (currentPage == DrawerSection.Missions) {
       container = MissionsPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Missions);
-    }
-    else if(currentPage == DrawerSection.History){
+    } else if (currentPage == DrawerSection.History) {
       container = VehiclesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.History);
-    }
-    else if(currentPage == DrawerSection.Company){
+    } else if (currentPage == DrawerSection.Company) {
       container = VehiclesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Company);
-    }
-    else if(currentPage == DrawerSection.About){
-      container =VehiclesPage();
+    } else if (currentPage == DrawerSection.About) {
+      container = AboutPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.About);
-    }
-    else if(currentPage == DrawerSection.Logout){
+    } else if (currentPage == DrawerSection.Logout) {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Logout);
     }
@@ -117,16 +112,48 @@ class _MainMenuState extends State<MainMenu> {
       ),
       child: Column(
         children: [
-          menuItem(1, DrawerNameList.nameList(DrawerSection.Home), CustomIcons.dashboard, currentPage == DrawerSection.Home ? true : false),
-          menuItem(2, DrawerNameList.nameList(DrawerSection.Launches), CustomIcons.launch, currentPage == DrawerSection.Launches ? true : false),
-          menuItem(3, DrawerNameList.nameList(DrawerSection.Vehicles), CustomIcons.rocket_1, currentPage == DrawerSection.Vehicles ? true : false),
+          menuItem(
+              1,
+              DrawerNameList.nameList(DrawerSection.Home),
+              CustomIcons.dashboard,
+              currentPage == DrawerSection.Home ? true : false),
+          menuItem(
+              2,
+              DrawerNameList.nameList(DrawerSection.Launches),
+              CustomIcons.launch,
+              currentPage == DrawerSection.Launches ? true : false),
+          menuItem(
+              3,
+              DrawerNameList.nameList(DrawerSection.Vehicles),
+              CustomIcons.rocket_1,
+              currentPage == DrawerSection.Vehicles ? true : false),
           Divider(),
-          menuItem(4, DrawerNameList.nameList(DrawerSection.Missions), CustomIcons.mission, currentPage == DrawerSection.Missions ? true : false),
-          menuItem(5, DrawerNameList.nameList(DrawerSection.History), CustomIcons.history, currentPage == DrawerSection.History ? true : false),
-          menuItem(6, DrawerNameList.nameList(DrawerSection.Company), CustomIcons.office, currentPage == DrawerSection.Company ? true : false),
+          menuItem(
+              4,
+              DrawerNameList.nameList(DrawerSection.Missions),
+              CustomIcons.mission,
+              currentPage == DrawerSection.Missions ? true : false),
+          menuItem(
+              5,
+              DrawerNameList.nameList(DrawerSection.History),
+              CustomIcons.history,
+              currentPage == DrawerSection.History ? true : false),
+          menuItem(
+              6,
+              DrawerNameList.nameList(DrawerSection.Company),
+              CustomIcons.office,
+              currentPage == DrawerSection.Company ? true : false),
           Divider(),
-          menuItem(7, DrawerNameList.nameList(DrawerSection.About), CustomIcons.about, currentPage == DrawerSection.About ? true : false),
-          menuItem(8, DrawerNameList.nameList(DrawerSection.Logout), CustomIcons.logout, currentPage == DrawerSection.Logout ? true : false),
+          menuItem(
+              7,
+              DrawerNameList.nameList(DrawerSection.About),
+              CustomIcons.about,
+              currentPage == DrawerSection.About ? true : false),
+          menuItem(
+              8,
+              DrawerNameList.nameList(DrawerSection.Logout),
+              CustomIcons.logout,
+              currentPage == DrawerSection.Logout ? true : false),
         ],
       ),
     );
