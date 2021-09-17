@@ -19,9 +19,9 @@ class CompanyRemoteDataSourceImpl extends CompanyRemoteDataSource {
     var response = await client.get(Uri.parse(company_url));
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      return data;
-          // .map<CompanyDataModel>((json) => CompanyDataModel.fromJson(json))
-          // .toList();
+      return data
+          .map<CompanyDataModel>((json) => CompanyDataModel.fromJson(json))
+          .toList();
     } else {
       throw ServerException();
     }
