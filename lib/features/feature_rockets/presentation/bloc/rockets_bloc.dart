@@ -26,9 +26,8 @@ class RocketsBloc extends Bloc<RocketsEvent, RocketsState> {
             RocketsErrorState(errorMessage: _mapFailureToMessage(failure)),
         (rocketsData) => RocketsLoadedState(rocketsList: rocketsData),
       );
-    }else{
-      throw RocketsErrorState(errorMessage: 'Unexpected Error');
     }
+    RocketsErrorState(errorMessage: 'Unexpected Error');
   }
 
   String _mapFailureToMessage(Failure failure) {

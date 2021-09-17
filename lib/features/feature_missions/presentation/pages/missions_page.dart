@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/features/feature_missions/presentation/bloc/missions_bloc.dart';
-import 'package:space_x/features/feature_missions/presentation/pages/missions_detailed_page.dart';
 import 'package:space_x/features/feature_missions/presentation/widgets/missions_list_tile_widget.dart';
 import 'package:space_x/features/feature_missions/presentation/widgets/missions_loading.dart';
 import 'package:space_x/injection_container.dart';
@@ -22,18 +21,12 @@ class _MissionsPageState extends State<MissionsPage> {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: kBackgroundGradient),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text("Missions"),
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: kBackgroundGradient,
         ),
-        drawer: Drawer(),
-        body: buildBody(),
       ),
+      child: buildBody(),
     );
   }
 
@@ -51,7 +44,9 @@ class _MissionsPageState extends State<MissionsPage> {
           return ListView.builder(
               itemCount: state.missionsList.length,
               itemBuilder: (context, index) {
-                return MissionsListTile(mission: state.missionsList[index],);
+                return MissionsListTile(
+                  mission: state.missionsList[index],
+                );
               });
         } else if (state is MissionsErrorState) {
           return ErrorWidget(state.errorMessage.toString());
