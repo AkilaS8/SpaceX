@@ -12,4 +12,3 @@ class MissionsLoadingView extends StatelessWidget {
     );
   }
 }
-//missions loading
