@@ -6,6 +6,11 @@ import 'package:space_x/features/feature_dragon/data/repositories/dragons_reposi
 import 'package:space_x/features/feature_dragon/domain/repositories/dragon_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/usecases/dragons_usecase.dart';
 import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
+import 'package:space_x/features/feature_missions/data/data_source/remote_data_source/missions_remote_data_data_source.dart';
+import 'package:space_x/features/feature_missions/data/repositories/missions_repository.dart';
+import 'package:space_x/features/feature_missions/domain/repositories/missions_repository.dart';
+import 'package:space_x/features/feature_missions/domain/usecases/missions_usecase.dart';
+import 'package:space_x/features/feature_missions/presentation/bloc/missions_bloc.dart';
 import 'package:space_x/features/feature_rockets/data/data_sources/remote_data_source/rockets_remote_data_source.dart';
 import 'package:space_x/features/feature_rockets/data/repositories/rockets_repository.dart';
 import 'package:space_x/features/feature_rockets/domain/repositories/rockets_repository.dart';
@@ -41,6 +46,12 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
+  //missions
+  sl.registerLazySingleton(
+        () => MissionsBloc(
+      useCase: sl(),
+    ),
+  );
 
 
   ///!!! Data Sources
@@ -59,6 +70,12 @@ Future<void> init() async {
   //ships
   sl.registerLazySingleton<ShipsRemoteDataSource>(
         () => ShipsRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+  //missions
+  sl.registerLazySingleton<MissionsRemoteDataSource>(
+        () => MissionsRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -85,6 +102,13 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+  //missions
+  sl.registerLazySingleton<MissionsRepository>(
+        () => MissionsRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   ///!!! Use Cases
   //rockets
@@ -102,6 +126,12 @@ Future<void> init() async {
   //ships
   sl.registerLazySingleton(
         () => GetShipsUseCase(
+      sl(),
+    ),
+  );
+  //missions
+  sl.registerLazySingleton(
+        () => GetMissionsUseCase(
       sl(),
     ),
   );
