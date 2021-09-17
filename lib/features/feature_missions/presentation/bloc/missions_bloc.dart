@@ -27,7 +27,8 @@ class MissionsBloc extends Bloc<MissionsEvent, MissionsState> {
               MissionsErrorState(errorMessage: _mapFailureToMessage(failure)),
           (missionsData) => MissionsLoadedState(missionsList: missionsData));
     }
-    yield MissionsErrorState(errorMessage: 'Unexpected Error2');
+    yield MissionsErrorState(errorMessage: 'Unexpected Error');
+
   }
 
   String _mapFailureToMessage(Failure failure) {

@@ -88,7 +88,7 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
-  //rockets
+  //dragons
   sl.registerLazySingleton<DragonsRepository>(
         () => DragonsRepositoryImpl(
       remoteDataSource: sl(),
@@ -117,7 +117,7 @@ Future<void> init() async {
       sl(),
     ),
   );
-  //rockets
+  //dragons
   sl.registerLazySingleton(
         () => GetDragonsUseCase(
       sl(),

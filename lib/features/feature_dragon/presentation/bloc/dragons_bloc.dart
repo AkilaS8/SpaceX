@@ -26,9 +26,8 @@ class DragonsBloc extends Bloc<DragonsEvent, DragonsState> {
             DragonsErrorState(errorMessage: _mapFailureToMessage(failure)),
         (dragonsData) => DragonsLoadedState(dragonsList: dragonsData),
       );
-    }else{
-      throw DragonsErrorState(errorMessage: 'Unexpected Error');
     }
+    DragonsErrorState(errorMessage: 'Unexpected Error');
 
   }
 
