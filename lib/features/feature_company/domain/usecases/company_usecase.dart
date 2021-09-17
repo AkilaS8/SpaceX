@@ -7,7 +7,7 @@ import 'package:space_x/features/feature_company/domain/repositories/company_rep
 class GetCompanyUseCase extends UseCase<List<CompanyDataModelEntity>, NoParams> {
   final CompanyRepository repository;
 
-  GetCompanyUseCase({required this.repository});
+  GetCompanyUseCase(this.repository);
 
   @override
   Future<Either<Failure, List<CompanyDataModelEntity>>> call(NoParams params) {
