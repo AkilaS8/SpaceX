@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-// import 'package:space_x/features/feature_vehicles/screens/vehicles_page.dart';
-// import 'injection_container.dart' as di;
-import 'package:space_x/features/feature_vehicles/screens/vehicles_page.dart';
+import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
 import 'injection_container.dart' as di;
 
 void main() async{
@@ -16,11 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: VehiclesPage(),
+      title: 'SpaceX',
+      debugShowCheckedModeBanner: false,
+      home: MainMenu(),
     );
   }
 }

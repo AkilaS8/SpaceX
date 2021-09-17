@@ -46,4 +46,3 @@ flutter:
     - family: SegoeUI
       fonts:
         - asset: assets/fonts/segoeui.ttf
-
