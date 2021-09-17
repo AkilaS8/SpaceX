@@ -6,6 +6,11 @@ import 'package:space_x/features/feature_dragon/data/repositories/dragons_reposi
 import 'package:space_x/features/feature_dragon/domain/repositories/dragon_repository.dart';
 import 'package:space_x/features/feature_dragon/domain/usecases/dragons_usecase.dart';
 import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
+import 'package:space_x/features/feature_history/data/data_sources/history_remote_data_source.dart';
+import 'package:space_x/features/feature_history/data/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/repositories/history_repository.dart';
+import 'package:space_x/features/feature_history/domain/use_cases/history_usecase.dart';
+import 'package:space_x/features/feature_history/presentation/bloc/history_bloc.dart';
 import 'package:space_x/features/feature_launches_upcoming/data/data_sources/remote_data_sources/upcoming_remote_data_source.dart';
 import 'package:space_x/features/feature_launches_upcoming/data/repositories/upcoming_repository.dart';
 import 'package:space_x/features/feature_launches_upcoming/domain/repositories/upcoming_repository.dart';
@@ -51,13 +56,6 @@ Future<void> init() async {
       useCase: sl(),
     ),
   );
-
-  //Upcoming
-  sl.registerLazySingleton(
-        () => UpcomingBloc(
-      useCase: sl(),
-    ),
-  );
   //missions
   sl.registerLazySingleton(
         () => MissionsBloc(
@@ -82,13 +80,6 @@ Future<void> init() async {
   //ships
   sl.registerLazySingleton<ShipsRemoteDataSource>(
         () => ShipsRemoteDataSourceImpl(
-      client: sl(),
-    ),
-  );
-
-  //Upcoming
-  sl.registerLazySingleton<UpcomingRemoteDataSource>(
-        () => UpcomingRemoteDataSourceImpl(
       client: sl(),
     ),
   );
@@ -129,14 +120,6 @@ Future<void> init() async {
     ),
   );
 
-  //Upcoming
-  sl.registerLazySingleton<UpcomingRepository>(
-        () => UpcomingRepositoryImpl(
-      remoteDataSource: sl(),
-      networkInfo: sl(),
-    ),
-  );
-
   ///!!! Use Cases
   //rockets
   sl.registerLazySingleton(
@@ -153,13 +136,6 @@ Future<void> init() async {
   //ships
   sl.registerLazySingleton(
         () => GetShipsUseCase(
-      sl(),
-    ),
-  );
-
-  //Upcoming
-  sl.registerLazySingleton(
-        () => GetUpcomingUseCase(
       sl(),
     ),
   );
