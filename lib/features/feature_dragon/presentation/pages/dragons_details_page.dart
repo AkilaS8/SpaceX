@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:space_x/core/constants/colors.dart';
-import 'package:space_x/features/feature_rockets/domain/entities/response/rockets_data_entity.dart';
+import 'package:space_x/features/feature_dragon/domain/entities/response/dragons_data_entity.dart';
 import 'package:space_x/features/feature_rockets/presentation/widgets/image_slider_widget.dart';
 
-class RocketDetailsPage extends StatelessWidget {
-  RocketDataEntity rocket;
+class DragonDetailsPage extends StatelessWidget {
+  DragonDataEntity dragon;
 
-  RocketDetailsPage({required this.rocket});
+  DragonDetailsPage({required this.dragon});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class RocketDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kAppbarColor,
         title: Text(
-          rocket.rocketName.toString(),
+          dragon.name.toString(),
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -25,7 +25,7 @@ class RocketDetailsPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ImageSliderWidget(imgList: rocket.flickrImages),
+          ImageSliderWidget(imgList: dragon.flickrImages),
         ],
       ),
     );
