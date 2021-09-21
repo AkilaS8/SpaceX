@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
-import 'package:space_x/core/loadings/rockets_loading_view.dart';
 import 'package:space_x/features/feature_history/presentation/bloc/history_bloc.dart';
 import 'package:space_x/features/feature_history/presentation/widgets/history_list_title.dart';
-// import 'package:space_x/features/feature_history/presentation/widgets/history_loading.dart';
+import 'package:space_x/features/feature_history/presentation/widgets/history_loading.dart';
 
 import '../../../../injection_container.dart';
 
@@ -38,10 +37,10 @@ class _HistoryPageState extends State<HistoryPage> {
       child: BlocBuilder<HistoryBloc, HistoryState>(
         builder: (context, state) {
           if (state is HistoryInitialState) {
-            _dispatchInit(context);
-            return RocketsLoadingView();
+            bloc.add(GetHistoryDataListEvent());
+            return HistoryLoadingView();
           } else if (state is HistoryLoadingState) {
-            return RocketsLoadingView();
+            return HistoryLoadingView();
           } else if (state is HistoryLoadedState) {
             return ListView.builder(
               itemCount: state.historyList.length,
@@ -58,7 +57,5 @@ class _HistoryPageState extends State<HistoryPage> {
     );
   }
 
-  void _dispatchInit(context) {
-    BlocProvider.of<HistoryBloc>(context)..add(GetHistoryDataListEvent());
-  }
+
 }

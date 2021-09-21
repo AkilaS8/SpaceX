@@ -18,7 +18,7 @@ class HistoryRemoteDataSourceImpl extends HistoryRemoteDataSource {
 
   @override
   Future<List<HistoryDataModel>> getHistoryDetails() async {
-    var response = await client.get(Uri.parse(dragons_url));
+    var response = await client.get(Uri.parse(history_url));
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       return data
