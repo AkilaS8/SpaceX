@@ -1,4 +1,4 @@
-import 'package:space_x/features/feature_company/domain/entitites/response/company_data_entity.dart';
+import 'package:space_x/features/feature_company/domain/entities/response/company_data_entity.dart';
 
 class CompanyDataModelHeadquarters extends CompanyDataModelHeadquartersEntity {
   String? address;
