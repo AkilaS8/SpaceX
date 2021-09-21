@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:space_x/core/constants/colors.dart';
 
 class MissionsDetailedPage extends StatelessWidget {
   const MissionsDetailedPage({Key? key}) : super(key: key);
@@ -9,9 +10,10 @@ class MissionsDetailedPage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xff102039), Color(0xff2A749B)]),
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: kBackgroundGradient,
+        ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -88,11 +90,11 @@ class MissionsDetailedPage extends StatelessWidget {
                           Container(
                               height: 30.0,
                               width: 30.0,
-                              child:
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset("assets/images/newspaper.png"),
-                                  )),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child:
+                                    Image.asset("assets/images/newspaper.png"),
+                              )),
                           Text("Articles"),
                         ],
                       ),
@@ -109,10 +111,10 @@ class MissionsDetailedPage extends StatelessWidget {
                           Container(
                               height: 30.0,
                               width: 30.0,
-                              child:
-                              Padding(
+                              child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Image.asset("assets/images/wikipedia-logo.png"),
+                                child: Image.asset(
+                                    "assets/images/wikipedia-logo.png"),
                               )),
                           Text("Wikipedia"),
                         ],
@@ -130,8 +132,7 @@ class MissionsDetailedPage extends StatelessWidget {
                           Container(
                               height: 30.0,
                               width: 30.0,
-                              child:
-                              Padding(
+                              child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Image.asset("assets/images/twitter.png"),
                               )),
