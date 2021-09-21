@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SpaceX',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'SegoeUI',
+      ),
       home: MainMenu(),
     );
   }
