@@ -6,5 +6,6 @@ const kBackgroundGradient = [
 ];
 
 const kAppbarColor = Color(0XFF102039);
+const kCardColor = Color(0XFF2A749B);
 
 const kDrawerSelected = Color(0xFF8EBAD2);
