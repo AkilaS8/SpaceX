@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:space_x/features/feature_company/domain/entitites/response/company_data_entity.dart';
 
-class CompanyBodyWidget extends StatefulWidget {
-  const CompanyBodyWidget({Key? key}) : super(key: key);
+class CompanyBodyWidget extends StatelessWidget {
+  final CompanyDataModelEntity company;
 
-  @override
-  _CompanyBodyWidgetState createState() => _CompanyBodyWidgetState();
-}
+  CompanyBodyWidget({required this.company});
 
-class _CompanyBodyWidgetState extends State<CompanyBodyWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,8 +16,7 @@ class _CompanyBodyWidgetState extends State<CompanyBodyWidget> {
             Image.asset("assets/images/space_x_2.png"),
             SizedBox(height: 20.0),
             Text(
-              "SpaceX designs, manufactures and launches advanced rockets and spacecrafts. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other"
-                  " planets.",
+              company.summary.toString(),
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 30.0),
@@ -29,9 +26,15 @@ class _CompanyBodyWidgetState extends State<CompanyBodyWidget> {
                 width: 120.0,
                 child: Row(
                   children: [
-                    Icon(Icons.location_on, color: Colors.white,),
+                    Icon(
+                      Icons.location_on,
+                      color: Colors.white,
+                    ),
                     SizedBox(width: 10.0),
-                    Text("Location", style: TextStyle(color: Colors.white),),
+                    Text(
+                      "Location",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ],
                 ),
               ),
@@ -40,8 +43,54 @@ class _CompanyBodyWidgetState extends State<CompanyBodyWidget> {
               children: [
                 ListView(
                   children: [
-                    Text("Location", style: TextStyle(color: Colors.white),), // NOT VISIBLE IN SCREEN
-                    Text("Location", style: TextStyle(color: Colors.white),), // NOT VISIBLE IN SCREEN
+                    Text(
+                      company.name.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.founder.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.founded.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.employees.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.vehicles.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.launchSites.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.testSites.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.ceo.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.cto.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.coo.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.ctoPropulsion.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      company.valuation.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ],
                 ),
               ],
