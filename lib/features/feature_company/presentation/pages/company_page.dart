@@ -35,21 +35,29 @@ class _CompanyPageState extends State<CompanyPage> {
 
   BlocProvider<CompanyBloc> buildBody() {
     return BlocProvider(
-        create: (_) => bloc,
-      child: BlocBuilder<CompanyBloc, CompanyState>(
-          builder: (context, state) {
-            if (state is CompanyInitialState) {
-              _dispatchInit(context);
-              return CompanyLoadingView();
-            } else if (state is CompanyLoadingState) {
-              return CompanyLoadingView();
-            } else if (state is CompanyLoadedState) {
-              return CompanyBodyWidget();
-            } else if (state is CompanyErrorState) {
-              return ErrorWidget(state.errorMessage.toString());
-            }
-            return ErrorWidget("Unexpected error occurred");
-          }),
+      create: (_) => bloc,
+      child: BlocBuilder<CompanyBloc, CompanyState>(builder: (context, state) {
+        if (state is CompanyInitialState) {
+          _dispatchInit(context);
+          return CompanyLoadingView();
+        } else if (state is CompanyLoadingState) {
+          return CompanyLoadingView();
+        } else if (state is CompanyLoadedState) {
+          return ListView.builder(
+              itemCount: state.companyList.length,
+              itemBuilder: (context, index) {
+                return CompanyBodyWidget(
+                  company: state.companyList[index],
+                );
+              });
+          //   CompanyBodyWidget(
+          //   company: state.companyList[index],
+          // );
+        } else if (state is CompanyErrorState) {
+          return ErrorWidget(state.errorMessage.toString());
+        }
+        return ErrorWidget("Unexpected error occurred");
+      }),
     );
   }
 
@@ -57,5 +65,3 @@ class _CompanyPageState extends State<CompanyPage> {
     BlocProvider.of<CompanyBloc>(context)..add(GetCompanyDataListEvent());
   }
 }
-
-
