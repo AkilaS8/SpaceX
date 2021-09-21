@@ -111,7 +111,9 @@ class RocketDetailsPage extends StatelessWidget {
                               SizedBox(
                                 width: 15.0,
                               ),
-                              Text((rocket.active.toString() == 'true')? 'Active':'De-Active'),
+                              Text((rocket.active.toString() == 'true')
+                                  ? 'Active'
+                                  : 'De-Active'),
                             ],
                           ),
                         ),

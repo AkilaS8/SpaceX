@@ -12,7 +12,7 @@ class DragonListTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
       child: GestureDetector(
-        onTap: (){
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -38,7 +38,10 @@ class DragonListTile extends StatelessWidget {
                   ),
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: dragon.flickrImages == null ? AssetImage('assets/images/no_image.png'):NetworkImage(dragon.flickrImages![0].toString()) as ImageProvider,
+                    image: dragon.flickrImages == null
+                        ? AssetImage('assets/images/no_image.png')
+                        : NetworkImage(dragon.flickrImages![0].toString())
+                            as ImageProvider,
                   ),
                 ),
               ),
@@ -57,8 +60,8 @@ class DragonListTile extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0, vertical: 15.0),
                 child: Text(
                   dragon.description.toString(),
                   textAlign: TextAlign.justify,
