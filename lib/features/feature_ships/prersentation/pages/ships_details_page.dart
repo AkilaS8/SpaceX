@@ -133,9 +133,12 @@ class ShipDetailedPage extends StatelessWidget {
                     itemCount: ship.roles!.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 2.0),
                         child: Text(
-                          (index + 1).toString() + ". " + ship.roles![index].toString(),
+                          (index + 1).toString() +
+                              ". " +
+                              ship.roles![index].toString(),
                         ),
                       );
                     },
@@ -190,6 +193,7 @@ class ShipDetailedPage extends StatelessWidget {
       ),
     );
   }
+
   _launchWebArticle() async {
     String url = ship.url.toString();
     if (await canLaunch(url)) {
