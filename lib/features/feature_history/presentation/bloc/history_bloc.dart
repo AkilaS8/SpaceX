@@ -27,7 +27,7 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
             (historyData) => HistoryLoadedState(historyList: historyData),
       );
     }
-     yield HistoryErrorState(errorMessage: 'Unexpected error');
+     // yield HistoryErrorState(errorMessage: 'Unexpected error');
 
   }
   String _mapFailureToMessage(Failure failure) {

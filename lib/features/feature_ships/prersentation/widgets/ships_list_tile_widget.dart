@@ -29,7 +29,7 @@ class ShipListTile extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: NetworkImage(ship.image.toString()),
+                  image: ship.image == null ? AssetImage('assets/images/no_image.png') : NetworkImage(ship.image.toString()) as ImageProvider,
                 ),
               ),
             ),
