@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
+import 'package:space_x/features/feature_splash_screen/pages/splash_screen.dart';
 import 'injection_container.dart' as di;
 
 void main() async{
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'SegoeUI',
       ),
-      home: MainMenu(),
+      home: SplashScreen(),
     );
   }
 }
