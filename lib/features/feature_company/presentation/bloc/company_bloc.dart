@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/error/failures.dart';
 import 'package:space_x/core/usecase/usecase.dart';
-import 'package:space_x/features/feature_company/domain/entitites/response/company_data_entity.dart';
+import 'package:space_x/features/feature_company/domain/entities/response/company_data_entity.dart';
 import 'package:space_x/features/feature_company/domain/usecases/company_usecase.dart';
 
 part 'company_events.dart';
@@ -25,7 +25,7 @@ class CompanyBloc extends Bloc<CompanyEvent, CompanyState> {
                   CompanyErrorState(errorMessage: _mapFailureToMessage(failure)),
               (companyData) => CompanyLoadedState(companyList: companyData));
     }
-    yield CompanyErrorState(errorMessage: 'Unexpected Error');
+    //yield CompanyErrorState(errorMessage: 'Unexpected Error');
 
   }
 
