@@ -20,20 +20,7 @@ class HistoryListTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Container(
-            //   height: 150.0,
-            //   width: double.infinity,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.only(
-            //       topRight: Radius.circular(15.0),
-            //       topLeft: Radius.circular(15.0),
-            //     ),
-            //     // image: DecorationImage(
-            //     //   fit: BoxFit.fill,
-            //     //   image: NetworkImage(ship.image.toString()),
-            //     // ),
-            //   ),
-            // ),
+
             SizedBox(
               height: 10.0,
             ),
