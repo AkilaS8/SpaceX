@@ -42,9 +42,7 @@ class _MainMenuState extends State<MainMenu> {
       container = HistoryPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.History);
     }
-    else if(currentPage == DrawerSection.Company){
-      container = CompanyPage();
-    } else if (currentPage == DrawerSection.Company) {
+    else if (currentPage == DrawerSection.Company) {
       container = CompanyPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Company);
     } else if (currentPage == DrawerSection.About) {
