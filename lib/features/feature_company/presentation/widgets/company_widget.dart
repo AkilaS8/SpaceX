@@ -23,6 +23,8 @@ class CompanyBodyWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 30.0),
+              Divider(color: Colors.white),
+              SizedBox(height: 30.0),
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
