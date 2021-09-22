@@ -1,15 +1,3 @@
-class CompanyDataModelHeadquartersEntity {
-  String? address;
-  String? city;
-  String? state;
-
-  CompanyDataModelHeadquartersEntity({
-    this.address,
-    this.city,
-    this.state,
-  });
-}
-
 class CompanyDataModelEntity {
   String? name;
   String? founder;
@@ -23,7 +11,6 @@ class CompanyDataModelEntity {
   String? coo;
   String? ctoPropulsion;
   int? valuation;
-  CompanyDataModelHeadquartersEntity? headquarters;
   String? summary;
 
   CompanyDataModelEntity({
@@ -39,7 +26,6 @@ class CompanyDataModelEntity {
     this.coo,
     this.ctoPropulsion,
     this.valuation,
-    this.headquarters,
     this.summary,
   });
 }

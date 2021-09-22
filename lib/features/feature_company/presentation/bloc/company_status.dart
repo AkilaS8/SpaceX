@@ -15,7 +15,7 @@ class CompanyLoadingState extends CompanyState {
 }
 
 class CompanyLoadedState extends CompanyState {
-  final List<CompanyDataModelEntity> companyList;
+  final CompanyDataModelEntity companyList;
 
   CompanyLoadedState({required this.companyList});
 

@@ -6,7 +6,7 @@ import 'package:space_x/features/feature_company/data/models/company_data_model.
 import 'package:http/http.dart' as http;
 
 abstract class CompanyRemoteDataSource {
-  Future<List<CompanyDataModel>> getCompanyDetails();
+  Future<CompanyDataModel> getCompanyDetails();
 }
 
 class CompanyRemoteDataSourceImpl extends CompanyRemoteDataSource {
@@ -15,13 +15,11 @@ class CompanyRemoteDataSourceImpl extends CompanyRemoteDataSource {
   CompanyRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<List<CompanyDataModel>> getCompanyDetails() async {
+  Future<CompanyDataModel> getCompanyDetails() async {
     var response = await client.get(Uri.parse(company_url));
     if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      return data
-          .map<CompanyDataModel>((json) => CompanyDataModel.fromJson(json))
-          .toList();
+      var data = CompanyDataModel.fromJson(jsonDecode(response.body));
+      return data;
     } else {
       throw ServerException();
     }

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/features/feature_company/presentation/bloc/company_bloc.dart';
 import 'package:space_x/features/feature_company/presentation/widgets/company_loading.dart';
-import 'package:space_x/features/feature_company/presentation/widgets/company_widget.dart';
 import 'package:space_x/injection_container.dart';
 
 class CompanyPage extends StatefulWidget {
@@ -27,7 +26,7 @@ class _CompanyPageState extends State<CompanyPage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        drawer: Drawer(),
+        //drawer: Drawer(),
         body: buildBody(),
       ),
     );
@@ -43,16 +42,10 @@ class _CompanyPageState extends State<CompanyPage> {
         } else if (state is CompanyLoadingState) {
           return CompanyLoadingView();
         } else if (state is CompanyLoadedState) {
-          return ListView.builder(
-              itemCount: state.companyList.length,
-              itemBuilder: (context, index) {
-                return CompanyBodyWidget(
-                  company: state.companyList[index],
-                );
-              });
-          //   CompanyBodyWidget(
-          //   company: state.companyList[index],
-          // );
+          print(state.companyList);
+          return Card(
+            child: Text(state.companyList.name.toString()),
+          );
         } else if (state is CompanyErrorState) {
           return ErrorWidget(state.errorMessage.toString());
         }

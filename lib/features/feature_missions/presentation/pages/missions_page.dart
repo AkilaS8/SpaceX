@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/features/feature_missions/presentation/bloc/missions_bloc.dart';
 import 'package:space_x/features/feature_missions/presentation/widgets/missions_list_tile_widget.dart';
-import 'package:space_x/features/feature_missions/presentation/widgets/missions_loading.dart';
+import 'package:space_x/core/loadings/rockets_loading_view.dart';
 import 'package:space_x/injection_container.dart';
 
 class MissionsPage extends StatefulWidget {
@@ -36,10 +36,11 @@ class _MissionsPageState extends State<MissionsPage> {
       child:
           BlocBuilder<MissionsBloc, MissionsState>(builder: (context, state) {
         if (state is MissionsInitialState) {
-          _dispatchedInit(context);
-          return MissionsLoadingView();
+         // _dispatchedInit(context);
+          bloc.add(GetMissionsDataListEvent());
+          return RocketsLoadingView();
         } else if (state is MissionsLoadingState) {
-          return MissionsLoadingView();
+          return RocketsLoadingView();
         } else if (state is MissionsLoadedState) {
           return ListView.builder(
               itemCount: state.missionsList.length,
@@ -56,7 +57,7 @@ class _MissionsPageState extends State<MissionsPage> {
     );
   }
 
-  void _dispatchedInit(context) {
-    BlocProvider.of<MissionsBloc>(context)..add(GetMissionsDataListEvent());
-  }
+  // void _dispatchedInit(context) {
+  //   BlocProvider.of<MissionsBloc>(context)..add(GetMissionsDataListEvent());
+  // }
 }
