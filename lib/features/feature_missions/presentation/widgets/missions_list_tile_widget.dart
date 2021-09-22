@@ -17,10 +17,13 @@ class MissionsListTile extends StatelessWidget {
           color: Colors.white,
           child: ListTile(
             title: Text(
-              mission.missionName.toString(), style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+              mission.missionName.toString(),
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
             ),
-            subtitle: Text("Mission ID: " +
-              mission.missionId.toString() + "\n" +
+            subtitle: Text(
+              "Mission ID: " +
+                  mission.missionId.toString() +
+                  "\n" +
                   mission.manufacturers.toString(),
             ),
             isThreeLine: true,
@@ -28,7 +31,9 @@ class MissionsListTile extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => MissionsDetailedPage()),
+                    builder: (context) => MissionsDetailedPage(
+                          mission: mission,
+                        )),
               )
             },
           ),

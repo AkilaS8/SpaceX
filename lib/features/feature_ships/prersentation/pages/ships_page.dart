@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
-import 'package:space_x/core/loadings/rockets_loading_view.dart';
+import 'package:space_x/core/loadings/ships_loading_view.dart';
 import 'package:space_x/features/feature_ships/prersentation/bloc/ships_bloc.dart';
 import 'package:space_x/features/feature_ships/prersentation/widgets/ships_list_tile_widget.dart';
 
@@ -38,9 +38,9 @@ class _ShipsPageState extends State<ShipsPage> {
         builder: (context, state) {
           if (state is ShipsInitialState) {
             _dispatchInit(context);
-            return RocketsLoadingView();
+            return ShipsLoadingView();
           } else if (state is ShipsLoadingState) {
-            return RocketsLoadingView();
+            return ShipsLoadingView();
           } else if (state is ShipsLoadedState) {
             return ListView.builder(
               itemCount: state.shipsList.length,

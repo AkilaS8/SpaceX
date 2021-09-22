@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
-import 'package:space_x/core/loadings/rockets_loading_view.dart';
+import 'package:space_x/core/loadings/dragons_loading_view.dart';
 import 'package:space_x/features/feature_dragon/presentation/bloc/dragons_bloc.dart';
 import 'package:space_x/features/feature_dragon/presentation/widgets/dragon_list_tile_widget.dart';
 
@@ -38,9 +38,9 @@ class _DragonsPageState extends State<DragonsPage> {
         builder: (context, state) {
           if (state is DragonsInitialState) {
             _dispatchInit(context);
-            return RocketsLoadingView();
+            return DragonsLoadingView();
           } else if (state is DragonsLoadingState) {
-            return RocketsLoadingView();
+            return DragonsLoadingView();
           } else if (state is DragonsLoadedState) {
             return ListView.builder(
               itemCount: state.dragonsList.length,

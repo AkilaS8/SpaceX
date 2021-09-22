@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/features/feature_company/presentation/bloc/company_bloc.dart';
-import 'package:space_x/features/feature_company/presentation/widgets/company_loading.dart';
+import 'package:space_x/core/loadings/rockets_loading_view.dart';
 import 'package:space_x/features/feature_company/presentation/widgets/company_widget.dart';
 import 'package:space_x/injection_container.dart';
 
@@ -27,7 +27,7 @@ class _CompanyPageState extends State<CompanyPage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        drawer: Drawer(),
+        //drawer: Drawer(),
         body: buildBody(),
       ),
     );
@@ -39,20 +39,12 @@ class _CompanyPageState extends State<CompanyPage> {
       child: BlocBuilder<CompanyBloc, CompanyState>(builder: (context, state) {
         if (state is CompanyInitialState) {
           _dispatchInit(context);
-          return CompanyLoadingView();
+          return RocketsLoadingView();
         } else if (state is CompanyLoadingState) {
-          return CompanyLoadingView();
+          return RocketsLoadingView();
         } else if (state is CompanyLoadedState) {
-          return ListView.builder(
-              itemCount: state.companyList.length,
-              itemBuilder: (context, index) {
-                return CompanyBodyWidget(
-                  company: state.companyList[index],
-                );
-              });
-          //   CompanyBodyWidget(
-          //   company: state.companyList[index],
-          // );
+          print(state.companyList);
+          return CompanyBodyWidget(company: state.companyList,);
         } else if (state is CompanyErrorState) {
           return ErrorWidget(state.errorMessage.toString());
         }
