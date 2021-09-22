@@ -45,6 +45,10 @@ flutter:
       fonts:
         - asset: assets/icons/CustomIcons.ttf
 
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto.ttf
+
     - family: SegoeUI
       fonts:
         - asset: assets/fonts/segoeui.ttf
