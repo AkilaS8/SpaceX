@@ -10,7 +10,6 @@ class MissionsDetailedPage extends StatelessWidget {
 
   MissionsDetailedPage({required this.mission});
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
