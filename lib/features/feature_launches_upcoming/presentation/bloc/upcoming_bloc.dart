@@ -25,7 +25,7 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState>{
             UpcomingErrorState(errorMessage: _mapFailureToMessage(failure)),
             (upcomingData) => UpcomingLoadedState(upcomingList: upcomingData));
     }
-      yield UpcomingErrorState(errorMessage: 'Unexpected Error');
+
     }
 
 
