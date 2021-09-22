@@ -121,7 +121,7 @@ class MissionsDetailedPage extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Image.asset(
-                                      "assets/images/wikipedia-logo.png"),
+                                      "assets/images/wikipedia_logo.png"),
                                 )),
                             Text("Wikipedia"),
                           ],
