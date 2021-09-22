@@ -10,18 +10,19 @@ class CompanyRepositoryImpl implements CompanyRepository {
   final NetworkInfo networkInfo;
   final CompanyRemoteDataSource remoteDataSource;
 
-  CompanyRepositoryImpl({required this.networkInfo, required this.remoteDataSource});
+  CompanyRepositoryImpl(
+      {required this.networkInfo, required this.remoteDataSource});
 
   @override
   Future<Either<Failure, List<CompanyDataModelEntity>>> getCompanyData() async {
     if (await networkInfo.isConnected) {
       try {
         return Right(await remoteDataSource.getCompanyDetails());
-    } on ServerException {
-    return Left(ServerFailure());
-    }
+      } on ServerException {
+        return Left(ServerFailure());
+      }
     } else {
-    return Left(ServerFailure());
+      return Left(ServerFailure());
     }
   }
 }

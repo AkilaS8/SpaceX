@@ -25,7 +25,7 @@ class CompanyBloc extends Bloc<CompanyEvent, CompanyState> {
                   CompanyErrorState(errorMessage: _mapFailureToMessage(failure)),
               (companyData) => CompanyLoadedState(companyList: companyData));
     }
-    yield CompanyErrorState(errorMessage: 'Unexpected Error');
+    //yield CompanyErrorState(errorMessage: 'Unexpected Error');
 
   }
 

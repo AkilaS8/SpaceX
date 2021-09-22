@@ -27,7 +27,7 @@ class _CompanyPageState extends State<CompanyPage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        drawer: Drawer(),
+        //drawer: Drawer(),
         body: buildBody(),
       ),
     );
