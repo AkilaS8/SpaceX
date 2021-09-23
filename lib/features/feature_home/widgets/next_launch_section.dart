@@ -48,7 +48,7 @@ class _NextLaunchSectionState extends State<NextLaunchSection> {
           } else if (state is NextLoadedState) {
             return Card();
           } else if (state is NextErrorState) {
-            return ErrorWidget(state.e);
+            return ErrorWidget(state.errorMessage.toString());
           }
           return ErrorWidget("Unexpected error occur");
         },
