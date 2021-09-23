@@ -4,7 +4,7 @@ abstract class NextEvent extends Equatable {
   const NextEvent();
 }
 
-class GetPastDataListEvent extends NextEvent {
+class GetNextDataListEvent extends NextEvent {
   @override
   List<Object?> get props => [];
 }
