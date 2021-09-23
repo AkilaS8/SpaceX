@@ -12,8 +12,11 @@ class MissionsListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+        padding: const EdgeInsets.fromLTRB(25.0, 5.0, 25.0, 5.0),
         child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
           color: Colors.white,
           child: ListTile(
             title: Text(
