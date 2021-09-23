@@ -7,7 +7,7 @@ import 'package:space_x/features/feature_missions/domain/usecases/missions_useca
 
 part 'missions_events.dart';
 
-part 'missions_status.dart';
+part 'missions_state.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 

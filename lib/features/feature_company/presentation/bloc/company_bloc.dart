@@ -6,7 +6,7 @@ import 'package:space_x/features/feature_company/domain/entities/response/compan
 import 'package:space_x/features/feature_company/domain/usecases/company_usecase.dart';
 
 part 'company_events.dart';
-part 'company_status.dart';
+part 'company_state.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 
