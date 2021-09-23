@@ -46,7 +46,8 @@ class _UpcomingSectionState extends State<UpcomingSection> {
               scrollDirection: Axis.horizontal,
               itemCount: state.upcomingList.length,
               itemBuilder: (context, index) {
-                return UpcomingHomeListTile(upcoming: state.upcomingList[index]);
+                return UpcomingHomeListTile(
+                    upcoming: state.upcomingList[index]);
               },
             );
           } else if (state is UpcomingErrorState) {

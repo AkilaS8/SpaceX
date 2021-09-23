@@ -19,7 +19,8 @@ class UpcomingHomeListTile extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 25.0,bottom: 10.0, top: 10.0),
+            padding: const EdgeInsets.only(
+                left: 16.0, right: 25.0, bottom: 10.0, top: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -36,9 +37,7 @@ class UpcomingHomeListTile extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 25.0),
                   child: Text(
                     upcoming.missionName.toString(),
-                    style: TextStyle(
-                      fontSize: 16.0
-                    ),
+                    style: TextStyle(fontSize: 16.0),
                   ),
                 ),
                 Center(
