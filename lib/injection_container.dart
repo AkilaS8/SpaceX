@@ -16,11 +16,25 @@ import 'package:space_x/features/feature_history/data/repositories/history_repos
 import 'package:space_x/features/feature_history/domain/repositories/history_repository.dart';
 import 'package:space_x/features/feature_history/domain/use_cases/history_usecase.dart';
 import 'package:space_x/features/feature_history/presentation/bloc/history_bloc.dart';
+import 'package:space_x/features/feature_launches_past/data/data_sources/past_remote_data_source.dart';
+import 'package:space_x/features/feature_launches_past/data/repositories/past_repositories.dart';
+import 'package:space_x/features/feature_launches_past/domain/repositories/past_repositories.dart';
+import 'package:space_x/features/feature_launches_past/domain/usecases/past_usecase.dart';
+import 'package:space_x/features/feature_launches_past/presentation/bloc/past_bloc.dart';
+import 'package:space_x/features/feature_launches_upcoming/data/data_sources/remote_data_sources/upcoming_remote_data_source.dart';
+import 'package:space_x/features/feature_launches_upcoming/data/repositories/upcoming_repository.dart';
+import 'package:space_x/features/feature_launches_upcoming/domain/repositories/upcoming_repository.dart';
+import 'package:space_x/features/feature_launches_upcoming/domain/usecases/upcoming_usecase.dart';
+import 'package:space_x/features/feature_launches_upcoming/presentation/bloc/upcoming_bloc.dart';
 import 'package:space_x/features/feature_missions/data/data_source/remote_data_source/missions_remote_data_data_source.dart';
 import 'package:space_x/features/feature_missions/data/repositories/missions_repository.dart';
 import 'package:space_x/features/feature_missions/domain/repositories/missions_repository.dart';
 import 'package:space_x/features/feature_missions/domain/usecases/missions_usecase.dart';
 import 'package:space_x/features/feature_missions/presentation/bloc/missions_bloc.dart';
+import 'package:space_x/features/feature_next_lunch/data/repositories/next_repository.dart';
+import 'package:space_x/features/feature_next_lunch/domain/repositories/next_repository.dart';
+import 'package:space_x/features/feature_next_lunch/domain/usecses/next_usecase.dart';
+import 'package:space_x/features/feature_next_lunch/presentation/bloc/next_bloc.dart';
 import 'package:space_x/features/feature_rockets/data/data_sources/remote_data_source/rockets_remote_data_source.dart';
 import 'package:space_x/features/feature_rockets/data/repositories/rockets_repository.dart';
 import 'package:space_x/features/feature_rockets/domain/repositories/rockets_repository.dart';
@@ -33,6 +47,7 @@ import 'package:space_x/features/feature_ships/domain/usecases/ships_usecase.dar
 import 'package:space_x/features/feature_ships/prersentation/bloc/ships_bloc.dart';
 
 import 'core/network/network_info.dart';
+import 'features/feature_next_lunch/data/data_sources/remote_data_sources/next_remote_data_source.dart';
 
 final sl = GetIt.instance;
 
@@ -75,6 +90,29 @@ Future<void> init() async {
     ),
   );
 
+  //Upcoming_Launches
+  sl.registerLazySingleton(
+        () => UpcomingBloc(
+      useCase: sl(),
+    ),
+  );
+
+  //Past_Launches
+  sl.registerLazySingleton(
+        () => PastBloc(
+      UseCase: sl(),
+    ),
+  );
+
+  //NExt_Launches
+  sl.registerLazySingleton(
+        () => NextBloc(
+      UseCase: sl(),
+    ),
+  );
+
+
+
 
   ///!!! Data Sources
   //rockets
@@ -113,6 +151,29 @@ Future<void> init() async {
       client: sl(),
     ),
   );
+
+  //Upcoming_Launches
+  sl.registerLazySingleton<UpcomingRemoteDataSource>(
+        () => UpcomingRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+
+  //Past_Launches
+  sl.registerLazySingleton<PastRemoteDataSource>(
+        () => PastRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+
+  //Next_Launches
+  sl.registerLazySingleton<NextRemoteDataSource>(
+        () => NextRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+
+
 
   ///!!! Repositories
   //rockets
@@ -158,6 +219,32 @@ Future<void> init() async {
     ),
   );
 
+  //Upcoming_Launches
+  sl.registerLazySingleton<UpcomingRepository>(
+        () => UpcomingRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+
+  //Past_Launches
+  sl.registerLazySingleton<PastRepository>(
+        () => PastRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+  //Next_Launches
+  sl.registerLazySingleton<NextRepository>(
+        () => NextRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+
+
+
+
   ///!!! Use Cases
   //rockets
   sl.registerLazySingleton(
@@ -192,6 +279,26 @@ Future<void> init() async {
   //company
   sl.registerLazySingleton(
         () => GetCompanyUseCase(
+      sl(),
+    ),
+  );
+
+  //Upcoming_Launches
+  sl.registerLazySingleton(
+        () => GetUpcomingUseCase(
+      sl(),
+    ),
+  );
+
+  //Past_Launches
+  sl.registerLazySingleton(
+        () => GetPastUseCase(
+      sl(),
+    ),
+  );
+  //Next_Launches
+  sl.registerLazySingleton(
+        () => GetNextUseCase(
       sl(),
     ),
   );

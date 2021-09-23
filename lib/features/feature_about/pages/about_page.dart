@@ -75,8 +75,8 @@ class _AboutPageState extends State<AboutPage> {
                 SizedBox(
                   height: 20.0,
                 ),
-                DeveloperTile(name: 'Oshanda Gihan', role: 'Flutter Developer', image: 'assets/images/sunali.jpg',),
-                DeveloperTile(name: 'Yasmitha Peththanayake', role: 'Flutter Developer', image: 'assets/images/sunali.jpg',),
+                DeveloperTile(name: 'Oshanda Gihan', role: 'Flutter Developer', image: 'assets/images/oshanda.jpeg',),
+                DeveloperTile(name: 'Yasmitha Peththanayake', role: 'Flutter Developer', image: 'assets/images/yasmitha.png',),
                 DeveloperTile(name: 'Sunali Rambukwella', role: 'Flutter Developer', image: 'assets/images/sunali.jpg',),
                 DeveloperTile(name: 'Akila Ishan', role: 'Flutter Developer', image: 'assets/images/akila.png',),
               ],
