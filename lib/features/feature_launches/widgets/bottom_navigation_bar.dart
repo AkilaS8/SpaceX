@@ -21,25 +21,13 @@ class BottomNavigationBarLaunches extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(CustomIcons.rocket_1),
           title: Text(
-            "Next",
-            style: TextStyle(fontFamily: 'SegoeUI'),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.rocket_1),
-          title: Text(
-            "Latest",
-            style: TextStyle(fontFamily: 'SegoeUI'),
-          ),
-        ),
-
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.rocket_1),
-          title: Text(
             "Past",
             style: TextStyle(fontFamily: 'SegoeUI'),
           ),
         ),
+
+
+
       ],
       type: BottomNavigationBarType.fixed,
       backgroundColor: Color(0XFF186088),

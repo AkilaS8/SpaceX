@@ -5,4 +5,5 @@ const String ships_url = "https://api.spacexdata.com/v3/ships";
 const String upcoming_url = "https://api.spacexdata.com/v3/launches/upcoming";
 const String history_url = "https://api.spacexdata.com/v3/history";
 const String company_url = "https://api.spacexdata.com/v3/info";
+const String Past_Url = "https://api.spacexdata.com/v3/launches/past";
 

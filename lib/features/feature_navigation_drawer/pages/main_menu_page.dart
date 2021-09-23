@@ -31,7 +31,7 @@ class _MainMenuState extends State<MainMenu> {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Home);
     } else if (currentPage == DrawerSection.Launches) {
-      container = HomePage();
+      container = LaunchesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Launches);
     } else if (currentPage == DrawerSection.Vehicles) {
       container = VehiclesPage();

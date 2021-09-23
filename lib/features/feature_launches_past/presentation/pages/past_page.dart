@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/core/loadings/rockets_loading_view.dart';
-import 'package:space_x/features/feature_launches_upcoming/presentation/bloc/upcoming_bloc.dart';
-import 'package:space_x/features/feature_launches_upcoming/presentation/widgets/upcoming_list_tile.dart';
+import 'package:space_x/features/feature_launches_past/presentation/bloc/past_bloc.dart';
+import 'package:space_x/features/feature_launches_past/presentation/widgets/past_list_tile_widget.dart';
 
 import '../../../../injection_container.dart';
 
-class UpcomingPage extends StatefulWidget {
-  const UpcomingPage({Key? key}) : super(key: key);
+class PastPage extends StatefulWidget {
+  const PastPage({Key? key}) : super(key: key);
 
   @override
-  _UpcomingPageState createState() => _UpcomingPageState();
+  _PastPageState createState() => _PastPageState();
 }
 
-class _UpcomingPageState extends State<UpcomingPage> {
-  final bloc = sl<UpcomingBloc>();
+class _PastPageState extends State<PastPage> {
+  final bloc = sl<PastBloc>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,25 +29,24 @@ class _UpcomingPageState extends State<UpcomingPage> {
       child: buildBody(),
     );
   }
-
-  BlocProvider<UpcomingBloc> buildBody() {
+  BlocProvider<PastBloc> buildBody() {
     return BlocProvider(
       create: (_) => bloc,
-      child: BlocBuilder<UpcomingBloc, UpcomingState>(
+      child: BlocBuilder<PastBloc, PastState>(
         builder: (context, state) {
-          if (state is UpcomingInitialState) {
+          if (state is PastInitialState) {
             _dispatchInit(context);
             return RocketsLoadingView();
-          } else if (state is UpcomingLoadingState) {
+          } else if (state is PastLoadingState) {
             return RocketsLoadingView();
-          } else if (state is UpcomingLoadedState) {
+          } else if (state is PastLoadedState) {
             return ListView.builder(
-              itemCount: state.upcomingList.length,
+              itemCount: state.PastList.length,
               itemBuilder: (context, index) {
-                return UpcomingListTile(upcoming : state.upcomingList[index]);
+                return PastListTile(past: state.PastList[index],);
               },
             );
-          } else if (state is UpcomingErrorState) {
+          } else if (state is PastErrorState) {
             return ErrorWidget(state.errorMessage.toString());
           }
           return ErrorWidget("Unexpected error occur");
@@ -57,6 +56,6 @@ class _UpcomingPageState extends State<UpcomingPage> {
   }
 
   void _dispatchInit(context) {
-    BlocProvider.of<UpcomingBloc>(context)..add(GetUpcomingDataListEvent());
+    BlocProvider.of<PastBloc>(context)..add(GetPastDataListEvent());
   }
 }
