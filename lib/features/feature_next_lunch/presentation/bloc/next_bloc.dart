@@ -16,13 +16,13 @@ class NextBloc extends Bloc<NextEvent, NextState> {
 
   @override
   Stream<NextState> mapEventToState(NextEvent event) async* {
-    if (event is GetPastDataListEvent) {
+    if (event is GetNextDataListEvent) {
       yield NextLoadingState();
       final faliureOrNextData = await UseCase(NoParams());
       yield faliureOrNextData.fold(
               (failure)
           =>
-              PastErrorState(errorMessage: _mapFailureToMessage(failure)),
+              NextErrorState(errorMessage: _mapFailureToMessage(failure)),
 
               (NextData) => NextLoadedState(NextList: NextData));
     }

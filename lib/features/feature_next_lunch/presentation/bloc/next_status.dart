@@ -27,10 +27,10 @@ class NextLoadedState extends NextState {
   List<Object?> get props => [NextList];
 }
 
-class PastErrorState extends NextState {
+class NextErrorState extends NextState {
   final String errorMessage;
 
-  PastErrorState({required this.errorMessage});
+  NextErrorState({required this.errorMessage});
 
   @override
   List<Object?> get props => [errorMessage];

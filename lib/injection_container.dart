@@ -31,6 +31,10 @@ import 'package:space_x/features/feature_missions/data/repositories/missions_rep
 import 'package:space_x/features/feature_missions/domain/repositories/missions_repository.dart';
 import 'package:space_x/features/feature_missions/domain/usecases/missions_usecase.dart';
 import 'package:space_x/features/feature_missions/presentation/bloc/missions_bloc.dart';
+import 'package:space_x/features/feature_next_lunch/data/repositories/next_repository.dart';
+import 'package:space_x/features/feature_next_lunch/domain/repositories/next_repository.dart';
+import 'package:space_x/features/feature_next_lunch/domain/usecses/next_usecase.dart';
+import 'package:space_x/features/feature_next_lunch/presentation/bloc/next_bloc.dart';
 import 'package:space_x/features/feature_rockets/data/data_sources/remote_data_source/rockets_remote_data_source.dart';
 import 'package:space_x/features/feature_rockets/data/repositories/rockets_repository.dart';
 import 'package:space_x/features/feature_rockets/domain/repositories/rockets_repository.dart';
@@ -43,6 +47,7 @@ import 'package:space_x/features/feature_ships/domain/usecases/ships_usecase.dar
 import 'package:space_x/features/feature_ships/prersentation/bloc/ships_bloc.dart';
 
 import 'core/network/network_info.dart';
+import 'features/feature_next_lunch/data/data_sources/remote_data_sources/next_remote_data_source.dart';
 
 final sl = GetIt.instance;
 
@@ -95,6 +100,13 @@ Future<void> init() async {
   //Past_Launches
   sl.registerLazySingleton(
         () => PastBloc(
+      UseCase: sl(),
+    ),
+  );
+
+  //NExt_Launches
+  sl.registerLazySingleton(
+        () => NextBloc(
       UseCase: sl(),
     ),
   );
@@ -153,6 +165,15 @@ Future<void> init() async {
       client: sl(),
     ),
   );
+
+  //Next_Launches
+  sl.registerLazySingleton<NextRemoteDataSource>(
+        () => NextRemoteDataSourceImpl(
+      client: sl(),
+    ),
+  );
+
+
 
   ///!!! Repositories
   //rockets
@@ -213,6 +234,16 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+  //Next_Launches
+  sl.registerLazySingleton<NextRepository>(
+        () => NextRepositoryImpl(
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+
+
+
 
   ///!!! Use Cases
   //rockets
@@ -262,6 +293,12 @@ Future<void> init() async {
   //Past_Launches
   sl.registerLazySingleton(
         () => GetPastUseCase(
+      sl(),
+    ),
+  );
+  //Next_Launches
+  sl.registerLazySingleton(
+        () => GetNextUseCase(
       sl(),
     ),
   );
