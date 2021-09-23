@@ -6,6 +6,7 @@ import 'package:space_x/features/feature_about/pages/about_page.dart';
 import 'package:space_x/features/feature_company/presentation/pages/company_page.dart';
 import 'package:space_x/features/feature_history/presentation/pages/history_page.dart';
 import 'package:space_x/features/feature_home/home_page.dart';
+import 'package:space_x/features/feature_launches/screens/launches_page.dart';
 import 'package:space_x/features/feature_missions/presentation/pages/missions_page.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_body_widget.dart';
 import 'package:space_x/features/feature_navigation_drawer/widgets/drawer_header_widget.dart';
@@ -30,7 +31,7 @@ class _MainMenuState extends State<MainMenu> {
       container = HomePage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Home);
     } else if (currentPage == DrawerSection.Launches) {
-      container = HomePage();
+      container = LaunchesPage();
       mainTitle = DrawerNameList.nameList(DrawerSection.Launches);
     } else if (currentPage == DrawerSection.Vehicles) {
       container = VehiclesPage();
