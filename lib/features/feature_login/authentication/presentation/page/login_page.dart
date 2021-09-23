@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_x/features/feature_home/home_page.dart';
 import 'package:space_x/features/feature_login/authentication/presentation/bloc/authentication_bloc.dart';
+import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
               listener: (context, state) {
                 if (state is AuthenticationSuccess) {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                      MaterialPageRoute(builder: (context) => MainMenu()));
                 } else if (state is AuthenticationFailiure) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
