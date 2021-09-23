@@ -27,7 +27,7 @@ class UpcomingListTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                upcoming.details.toString(),
+                upcoming.missionName.toString(),
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'SegoeUI',
@@ -39,7 +39,7 @@ class UpcomingListTile extends StatelessWidget {
               padding:
               const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
               child: Text(
-                upcoming.missionName.toString(),
+                upcoming.details.toString(),
                 textAlign: TextAlign.justify,
                 // overflow: TextOverflow.ellipsis,
                 style: TextStyle(),

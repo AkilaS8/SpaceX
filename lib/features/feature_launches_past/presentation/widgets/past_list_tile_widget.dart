@@ -28,7 +28,7 @@ class PastListTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                past.details.toString(),
+                'Flight Number: ' + past.flightNumber.toString(),
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'SegoeUI',
@@ -40,7 +40,7 @@ class PastListTile extends StatelessWidget {
               padding:
               const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
               child: Text(
-                'Flight Number: ' + past.flightNumber.toString(),
+                past.details.toString(),
                 textAlign: TextAlign.justify,
                 // overflow: TextOverflow.ellipsis,
                 style: TextStyle(),
