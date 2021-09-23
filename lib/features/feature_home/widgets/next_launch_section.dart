@@ -4,6 +4,7 @@ import 'package:space_x/core/constants/colors.dart';
 import 'package:space_x/features/feature_next_lunch/presentation/bloc/next_bloc.dart';
 
 import '../../../injection_container.dart';
+import 'next_launch_list_tile_home.dart';
 
 class NextLaunchSection extends StatefulWidget {
   const NextLaunchSection({Key? key}) : super(key: key);
@@ -46,7 +47,9 @@ class _NextLaunchSectionState extends State<NextLaunchSection> {
               ),
             );
           } else if (state is NextLoadedState) {
-            return Card();
+            return NextLaunchListTileHome(
+              next: state.NextList,
+            );
           } else if (state is NextErrorState) {
             return ErrorWidget(state.errorMessage.toString());
           }
