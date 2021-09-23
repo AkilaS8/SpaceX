@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_x/core/constants/colors.dart';
+import 'package:space_x/features/feature_home/widgets/next_launch_section.dart';
 import 'package:space_x/features/feature_home/widgets/upcoming_section.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,7 +48,9 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               flex: 1,
-              child: Container(),
+              child: Container(
+                child: NextLaunchSection(),
+              ),
             ),
             Expanded(
               flex: 1,
