@@ -57,8 +57,11 @@ class _SplashScreenState extends State<SplashScreen>
               ).animate(animationController),
               child: FadeTransition(
                 opacity: animationController,
-                child: Image(
-                  image: AssetImage("assets/images/space_x_2.png"),
+                child: Hero(
+                  tag: 'logo',
+                  child: Image(
+                    image: AssetImage("assets/images/space_x_2.png"),
+                  ),
                 ),
               ),
             ),
