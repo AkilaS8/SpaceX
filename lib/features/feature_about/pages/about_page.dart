@@ -63,7 +63,8 @@ class _AboutPageState extends State<AboutPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 20.0),
                   child: Text(
                     "This Project created using SpaceX APIs to view SpaceX projects, vehicles and etc. This project done by Mobile Team Epic Lanka Technology.",
                     textAlign: TextAlign.center,
@@ -75,10 +76,26 @@ class _AboutPageState extends State<AboutPage> {
                 SizedBox(
                   height: 20.0,
                 ),
-                DeveloperTile(name: 'Oshanda Gihan', role: 'Flutter Developer', image: 'assets/images/oshanda.jpeg',),
-                DeveloperTile(name: 'Yasmitha Peththanayake', role: 'Flutter Developer', image: 'assets/images/yasmitha.png',),
-                DeveloperTile(name: 'Sunali Rambukwella', role: 'Flutter Developer', image: 'assets/images/sunali.jpg',),
-                DeveloperTile(name: 'Akila Ishan', role: 'Flutter Developer', image: 'assets/images/akila.png',),
+                DeveloperTile(
+                  name: 'Oshanda Gihan',
+                  role: 'Flutter Developer',
+                  image: 'assets/images/oshanda.jpeg',
+                ),
+                DeveloperTile(
+                  name: 'Yasmitha Peththanayake',
+                  role: 'Flutter Developer',
+                  image: 'assets/images/yasmitha.png',
+                ),
+                DeveloperTile(
+                  name: 'Sunali Rambukwella',
+                  role: 'Flutter Developer',
+                  image: 'assets/images/sunali.jpg',
+                ),
+                DeveloperTile(
+                  name: 'Akila Ishan',
+                  role: 'Flutter Developer',
+                  image: 'assets/images/akila.png',
+                ),
               ],
             ),
           )

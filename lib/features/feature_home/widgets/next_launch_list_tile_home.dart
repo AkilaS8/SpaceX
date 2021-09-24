@@ -12,6 +12,7 @@ class NextLaunchListTileHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: kHomeCardColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -21,7 +22,7 @@ class NextLaunchListTileHome extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-              left: 16.0,
+              left: 20.0,
             ),
             child: Text(
               "Next Launch",
@@ -43,7 +44,7 @@ class NextLaunchListTileHome extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 16.0,
+              left: 20.0,
             ),
             child: Text(
               "Mission Name:  " + next.missionName.toString(),
@@ -55,7 +56,7 @@ class NextLaunchListTileHome extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 16.0,
+              left: 20.0,
             ),
             child: Text(
               "Mission ID:  " + next.missionId![0].toString(),
