@@ -16,6 +16,7 @@ class UpcomingHomeListTile extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width * 0.7,
         child: Card(
+          color: kHomeCardColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
@@ -38,7 +39,7 @@ class UpcomingHomeListTile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 25.0),
                     child: Text(
-                      upcoming.missionName.toString(),
+                      "Mission Name:  " + upcoming.missionName.toString(),
                       style: TextStyle(fontSize: 16.0),
                     ),
                   ),
