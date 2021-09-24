@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
+import 'package:space_x/features/feature_login/authentication/presentation/page/login_page.dart';
+//import 'package:space_x/features/feature_navigation_drawer/pages/main_menu_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -23,14 +24,15 @@ class _SplashScreenState extends State<SplashScreen>
 
     Timer(Duration(seconds: 4), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => MainMenu()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
     });
   }
 
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
+
   }
 
   @override
