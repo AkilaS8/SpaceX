@@ -21,6 +21,7 @@ class _NextLaunchSectionState extends State<NextLaunchSection> {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Container(
+        color: kHomeCardColor,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: buildBody(),
